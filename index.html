@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salama Seda Demren — Nefes & Sinir Sistemi</title>
+    <meta name="description" content="Nefes, sinir sistemi düzenlenmesi ve varoluşsal farkındalık alanlarını bütünsel bir yaklaşımla ele alan Salama Seda Demren ile içsel dönüşüm yolculuğunuza başlayın.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green:   #1B3829;
+            --green-2: #243F30;
+            --cream:   #F2EDE3;
+            --cream-bg:#FAF7F2;
+            --white:   #FFFFFF;
+            --muted:   #5A6B5E;
+            --dark:    #1A1A18;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            color: var(--dark);
+            background: var(--cream-bg);
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 30px 64px;
+            display: flex; justify-content: space-between; align-items: center;
+            transition: padding .4s, background .4s;
+        }
+        nav.scrolled {
+            background: rgba(27,56,41,.97);
+            backdrop-filter: blur(12px);
+            padding: 18px 64px;
+        }
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px; font-weight: 400;
+            letter-spacing: .18em; text-transform: uppercase;
+            color: var(--cream); text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 44px; list-style: none; }
+        .nav-links a {
+            font-size: 11px; font-weight: 400;
+            letter-spacing: .14em; text-transform: uppercase;
+            color: var(--cream); text-decoration: none;
+            opacity: .7; transition: opacity .2s;
+        }
+        .nav-links a:hover { opacity: 1; }
+        .nav-cta {
+            padding: 10px 28px;
+            border: 1px solid rgba(242,237,227,.45);
+            color: var(--cream) !important; opacity: 1 !important;
+            transition: background .25s !important;
+        }
+        .nav-cta:hover { background: rgba(242,237,227,.12) !important; }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            background: var(--green);
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center;
+            padding: 130px 40px 100px;
+            position: relative; overflow: hidden;
+        }
+        #hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(36,63,48,.6) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-eyebrow {
+            font-size: 10px; font-weight: 400;
+            letter-spacing: .3em; text-transform: uppercase;
+            color: rgba(242,237,227,.5);
+            margin-bottom: 48px;
+        }
+        .hero-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(80px, 14vw, 160px);
+            font-weight: 300; letter-spacing: .04em;
+            color: var(--cream); line-height: .88;
+            margin-bottom: 40px;
+        }
+        .hero-line {
+            width: 44px; height: 1px;
+            background: rgba(242,237,227,.35);
+            margin: 0 auto 40px;
+        }
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(17px, 2vw, 24px);
+            font-style: italic; font-weight: 300;
+            color: rgba(242,237,227,.65);
+            max-width: 520px; line-height: 1.65;
+            margin-bottom: 64px;
+        }
+        .hero-cta {
+            display: inline-block;
+            padding: 17px 52px;
+            border: 1px solid rgba(242,237,227,.45);
+            color: var(--cream); text-decoration: none;
+            font-size: 11px; font-weight: 400;
+            letter-spacing: .22em; text-transform: uppercase;
+            transition: all .3s;
+        }
+        .hero-cta:hover { background: rgba(242,237,227,.1); border-color: var(--cream); }
+
+        .scroll-line {
+            position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%);
+            width: 1px; height: 50px;
+            background: linear-gradient(to bottom, transparent, rgba(242,237,227,.35));
+            animation: scrollAnim 1.8s ease-in-out infinite;
+        }
+        @keyframes scrollAnim {
+            0%   { opacity: 0; transform: translateX(-50%) scaleY(0); transform-origin: top; }
+            50%  { opacity: 1; transform: translateX(-50%) scaleY(1); }
+            100% { opacity: 0; transform: translateX(-50%) scaleY(0); transform-origin: bottom; }
+        }
+
+        /* ── MANIFESTO ── */
+        #manifesto {
+            background: var(--green);
+            padding: 110px 64px;
+            border-top: 1px solid rgba(242,237,227,.08);
+        }
+        .manifesto-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 100px;
+            align-items: center;
+        }
+        .manifesto-lines { list-style: none; }
+        .manifesto-lines li {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(22px, 2.4vw, 34px);
+            font-weight: 300; color: var(--cream);
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(242,237,227,.1);
+            line-height: 1.2;
+        }
+        .manifesto-lines li:first-child { border-top: 1px solid rgba(242,237,227,.1); }
+        .manifesto-lines li.italic-line { font-style: italic; opacity: .6; }
+        .manifesto-right { padding-left: 20px; }
+        .label-light {
+            display: block; font-size: 10px; font-weight: 500;
+            letter-spacing: .3em; text-transform: uppercase;
+            color: rgba(242,237,227,.45); margin-bottom: 28px;
+        }
+        .label-dark {
+            display: block; font-size: 10px; font-weight: 500;
+            letter-spacing: .3em; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 28px;
+        }
+        .manifesto-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(16px, 1.6vw, 20px);
+            font-style: italic; font-weight: 300;
+            color: rgba(242,237,227,.6); line-height: 1.9;
+        }
+
+        /* ── ABOUT ── */
+        #about { padding: 120px 64px; background: var(--cream-bg); }
+        .about-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 5fr 7fr; gap: 100px;
+            align-items: start;
+        }
+        .about-img-wrap { position: sticky; top: 120px; }
+        .about-img {
+            width: 100%; aspect-ratio: 3/4;
+            background: var(--green);
+            overflow: hidden;
+        }
+        .about-img img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: top center;
+            display: block;
+        }
+        .about-content { padding-top: 10px; }
+        .about-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(48px, 6vw, 82px);
+            font-weight: 300; line-height: .92;
+            color: var(--dark); margin-bottom: 12px;
+        }
+        .about-role {
+            font-size: 11px; font-weight: 400;
+            letter-spacing: .2em; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 44px;
+        }
+        .about-bio { margin-bottom: 32px; }
+        .about-bio p {
+            font-size: 15px; font-weight: 300;
+            line-height: 1.95; color: #4A5C50;
+            margin-bottom: 22px;
+        }
+        .about-timeline { border-top: 1px solid rgba(27,56,41,.1); padding-top: 36px; }
+        .timeline-item {
+            display: grid; grid-template-columns: 56px 1fr; gap: 24px;
+            margin-bottom: 28px; align-items: start;
+        }
+        .timeline-year {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 13px; font-weight: 400;
+            color: var(--green); opacity: .6;
+            padding-top: 2px; letter-spacing: .05em;
+        }
+        .timeline-text {
+            font-size: 14px; font-weight: 300;
+            line-height: 1.85; color: #4A5C50;
+        }
+        .about-stats {
+            margin-top: 52px; padding-top: 48px;
+            border-top: 1px solid rgba(27,56,41,.1);
+            display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+        }
+        .about-stat-item {
+            display: flex; align-items: flex-start; gap: 16px;
+        }
+        .about-stat-icon {
+            width: 40px; height: 40px; flex-shrink: 0;
+            background: rgba(27,56,41,.07);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-top: 4px;
+        }
+        .about-stat-icon svg {
+            width: 18px; height: 18px;
+            stroke: var(--green); fill: none;
+            stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .about-stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px; font-weight: 300;
+            color: var(--green); line-height: 1;
+            margin-bottom: 4px;
+        }
+        .about-stat-label {
+            font-size: 12px; font-weight: 300;
+            letter-spacing: .06em; color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ── DIVINE SHE ── */
+        #divine-she { padding: 0; background: var(--white); overflow: hidden; }
+        .divine-grid {
+            max-width: 100%; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+        }
+        .divine-img {
+            width: 100%; height: 100%; min-height: 600px;
+            overflow: hidden;
+        }
+        .divine-img img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: center;
+            display: block;
+        }
+        .divine-content {
+            padding: 100px 80px;
+            display: flex; flex-direction: column; justify-content: center;
+            background: var(--cream-bg);
+        }
+        .divine-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(52px, 5vw, 80px);
+            font-weight: 300; line-height: .88;
+            color: var(--dark); margin-bottom: 36px;
+        }
+        .divine-right p {
+            font-size: 15px; font-weight: 300;
+            line-height: 1.95; color: #4A5C50;
+            margin-bottom: 22px;
+        }
+        .divine-right p:last-of-type { margin-bottom: 40px; }
+
+        /* ── PROGRAMS ── */
+        #programs { padding: 120px 64px; background: var(--white); }
+        .section-header {
+            max-width: 1200px; margin: 0 auto 72px;
+            display: flex; justify-content: space-between; align-items: flex-end;
+        }
+        .display-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 5vw, 68px);
+            font-weight: 300; line-height: 1.05;
+            color: var(--dark);
+        }
+        .section-note {
+            font-size: 14px; font-weight: 300;
+            line-height: 1.8; color: var(--muted);
+            max-width: 300px; text-align: right;
+        }
+        .programs-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+        }
+        .prog-card { position: relative; overflow: hidden; cursor: pointer; }
+        .prog-inner {
+            padding: 64px 56px; min-height: 520px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            transition: transform .5s ease;
+        }
+        .prog-card:hover .prog-inner { transform: scale(1.01); }
+        .prog-badge {
+            position: absolute; top: 40px; right: 40px;
+            background: rgba(242,237,227,.14);
+            padding: 7px 16px; font-size: 9px;
+            font-weight: 500; letter-spacing: .2em;
+            text-transform: uppercase; color: var(--cream);
+        }
+        .prog-tag {
+            font-size: 10px; font-weight: 500;
+            letter-spacing: .3em; text-transform: uppercase;
+            color: rgba(242,237,227,.45); margin-bottom: 16px;
+        }
+        .prog-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(40px, 4.5vw, 64px);
+            font-weight: 300; color: var(--cream);
+            line-height: .95; margin-bottom: 24px;
+        }
+        .prog-desc {
+            font-size: 14px; font-weight: 300;
+            line-height: 1.8; color: rgba(242,237,227,.6);
+            margin-bottom: 40px;
+        }
+        .prog-link {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 11px; font-weight: 400;
+            letter-spacing: .16em; text-transform: uppercase;
+            color: var(--cream); text-decoration: none;
+            opacity: .65; transition: opacity .2s;
+        }
+        .prog-link::after { content: '→'; transition: transform .2s; }
+        .prog-link:hover { opacity: 1; }
+        .prog-link:hover::after { transform: translateX(4px); }
+
+        /* ── SADECE SECTION ── */
+        #sadece {
+            padding: 120px 64px;
+            background: var(--green);
+            position: relative;
+        }
+        .sadece-inner { position: relative; z-index: 1; }
+        .sadece-inner { max-width: 1200px; margin: 0 auto; }
+        .sadece-top {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+            align-items: end; margin-bottom: 80px;
+        }
+        .sadece-display {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(72px, 12vw, 148px);
+            font-weight: 300; color: var(--cream);
+            line-height: .82; letter-spacing: .01em;
+        }
+        .sadece-display .dot-ce {
+            font-size: .38em; letter-spacing: .08em;
+            color: rgba(242,237,227,.4);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+        }
+        .sadece-right-text {
+            font-size: 15px; font-weight: 300;
+            line-height: 1.95; color: rgba(242,237,227,.65);
+        }
+        .sadece-right-text strong {
+            color: var(--cream); font-weight: 400;
+        }
+        .btn-outline-cream {
+            display: inline-block; margin-top: 40px;
+            padding: 16px 50px;
+            border: 1px solid rgba(242,237,227,.4);
+            color: var(--cream); text-decoration: none;
+            font-size: 11px; font-weight: 400;
+            letter-spacing: .22em; text-transform: uppercase;
+            transition: all .3s;
+        }
+        .btn-outline-cream:hover { background: rgba(242,237,227,.09); border-color: var(--cream); }
+
+        .stats-row {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;
+            margin-bottom: 3px;
+        }
+        .stat {
+            padding: 48px 36px;
+            background: rgba(242,237,227,.04);
+            border: 1px solid rgba(242,237,227,.07);
+        }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(50px, 5vw, 74px);
+            font-weight: 300; color: var(--cream); line-height: 1;
+            margin-bottom: 10px;
+        }
+        .stat-lbl {
+            font-size: 11px; font-weight: 500;
+            letter-spacing: .18em; text-transform: uppercase;
+            color: rgba(242,237,227,.45); margin-bottom: 8px;
+        }
+        .stat-sub {
+            font-size: 11px; font-weight: 300;
+            line-height: 1.65; color: rgba(242,237,227,.3);
+        }
+
+        .detail-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+        }
+        .detail-block {
+            padding: 56px 52px;
+            background: rgba(242,237,227,.04);
+            border: 1px solid rgba(242,237,227,.07);
+        }
+        .detail-h {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px; font-weight: 300;
+            color: var(--cream); margin-bottom: 28px;
+        }
+        .detail-list { list-style: none; }
+        .detail-list li {
+            font-size: 14px; font-weight: 300;
+            line-height: 1.7; color: rgba(242,237,227,.55);
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(242,237,227,.06);
+            display: flex; gap: 16px;
+        }
+        .detail-list li::before { content: '—'; color: rgba(242,237,227,.25); flex-shrink: 0; }
+
+        /* ── CTA ── */
+        #cta { padding: 160px 64px; background: var(--cream-bg); text-align: center; }
+        .cta-inner { max-width: 680px; margin: 0 auto; }
+        .cta-h {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(44px, 7vw, 88px);
+            font-weight: 300; line-height: 1.05;
+            color: var(--dark); margin-bottom: 24px;
+        }
+        .cta-sub {
+            font-size: 15px; font-weight: 300;
+            line-height: 1.85; color: var(--muted);
+            margin-bottom: 48px;
+        }
+        .date-pill {
+            display: inline-block; margin-bottom: 44px;
+            padding: 9px 26px; background: var(--green);
+            color: var(--cream); font-size: 10px;
+            font-weight: 400; letter-spacing: .22em;
+            text-transform: uppercase;
+        }
+        .btn-green {
+            display: inline-block;
+            padding: 18px 58px; background: var(--green);
+            color: var(--cream); text-decoration: none;
+            font-size: 11px; font-weight: 400;
+            letter-spacing: .22em; text-transform: uppercase;
+            transition: background .3s, transform .25s;
+        }
+        .btn-green:hover { background: var(--green-2); transform: translateY(-2px); }
+        .cta-contact {
+            margin-top: 52px; font-size: 12px;
+            letter-spacing: .08em; color: var(--muted);
+        }
+        .cta-contact a { color: var(--muted); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--green);
+            padding: 56px 64px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid rgba(242,237,227,.08);
+        }
+        .footer-brand { }
+        .footer-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px; font-weight: 300;
+            letter-spacing: .08em; color: var(--cream);
+        }
+        .footer-sub {
+            font-size: 11px; font-weight: 300;
+            letter-spacing: .14em; color: rgba(242,237,227,.35);
+            margin-top: 4px;
+        }
+        .footer-links { display: flex; gap: 36px; list-style: none; }
+        .footer-links a {
+            font-size: 11px; font-weight: 400;
+            letter-spacing: .14em; text-transform: uppercase;
+            color: rgba(242,237,227,.45); text-decoration: none;
+            transition: color .2s;
+        }
+        .footer-links a:hover { color: var(--cream); }
+        .footer-copy { font-size: 11px; color: rgba(242,237,227,.25); }
+
+        /* ── ANIMATIONS ── */
+        .reveal {
+            opacity: 0; transform: translateY(28px);
+            transition: opacity .85s ease, transform .85s ease;
+        }
+        .reveal.in { opacity: 1; transform: none; }
+        .reveal-d1 { transition-delay: .12s; }
+        .reveal-d2 { transition-delay: .24s; }
+        .reveal-d3 { transition-delay: .36s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            nav, nav.scrolled { padding: 22px 28px; }
+            .nav-links { display: none; }
+            #hero, #manifesto, #about, #programs, #sadece, #cta { padding-left: 28px; padding-right: 28px; }
+            .manifesto-grid, .about-grid, .sadece-top, .detail-row { grid-template-columns: 1fr; gap: 44px; }
+            .programs-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .section-note { text-align: left; }
+            footer { flex-direction: column; gap: 36px; text-align: center; padding: 52px 28px; }
+            .manifesto-right { padding-left: 0; }
+            .divine-grid { grid-template-columns: 1fr; }
+            .divine-img { min-height: 400px; }
+            .divine-content { padding: 60px 28px; }
+            .about-img-wrap { position: static; }
+        }
+        @media (max-width: 520px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .sadece-display { font-size: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+    <a href="#" class="nav-logo">Salama</a>
+    <ul class="nav-links">
+        <li><a href="#about">Hakkında</a></li>
+        <li><a href="#divine-she">Divine She</a></li>
+        <li><a href="#sadece">Sade.ce</a></li>
+        <li><a href="#videos">Videolar</a></li>
+        <li><a href="#cta" class="nav-cta">Başvur</a></li>
+    </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+    <p class="hero-eyebrow">Nefes &nbsp;·&nbsp; Sinir Sistemi &nbsp;·&nbsp; Varoluşsal Farkındalık</p>
+    <h1 class="hero-name">SALAMA</h1>
+    <div class="hero-line"></div>
+    <p class="hero-tagline">İçsel dönüşüm, daha fazlasını eklemekle değil —<br>taşımanın gerekmeyenleri bırakmakla başlar.</p>
+    <a href="#sadece" class="hero-cta">Sade.ce Programı</a>
+    <div class="scroll-line"></div>
+</section>
+
+<!-- ═══ MANIFESTO ═══ -->
+<section id="manifesto">
+    <div class="manifesto-grid">
+        <ul class="manifesto-lines reveal">
+            <li>İçerisi doluysa.</li>
+            <li>Akış yavaşlamıştır.</li>
+            <li>Biraz ferahlamaya ne dersin?</li>
+            <li class="italic-line">"Sade•ce"</li>
+            <li>Fazlasını bırakma alanı.</li>
+        </ul>
+        <div class="manifesto-right reveal reveal-d1">
+            <span class="label-light">Yaklaşım</span>
+            <p class="manifesto-quote">
+                Bu program bir gelişim alanı değil.<br>
+                Bir arınma alanı.<br><br>
+                Bir şey katmıyoruz.<br>
+                Üzerinden alıyoruz.<br><br>
+                Çünkü mesele daha fazlası değil,<br>
+                artık sana ait olmayanın çözülmesi.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+    <div class="about-grid">
+        <div class="about-img-wrap reveal">
+            <div class="about-img">
+                <img src="images/salama-portrait.jpeg" alt="Salama Seda Demren">
+            </div>
+        </div>
+        <div class="about-content reveal reveal-d1">
+            <span class="label-dark">Hakkında</span>
+            <h2 class="about-name">Salama<br>Seda Demren</h2>
+            <p class="about-role">Nefes &nbsp;·&nbsp; Sinir Sistemi &nbsp;·&nbsp; Varoluşsal Farkındalık</p>
+            <div class="about-bio">
+                <p>1981 İstanbul doğumlu olan Salama, kurumsal hayatla başlayan profesyonel yolculuğunu, insanın içsel mekanizmalarını anlamaya yönelik çok katmanlı bir araştırma ve uygulama sürecine dönüştürerek, bugün nefes, sinir sistemi ve varoluşsal farkındalık alanlarını bütünsel bir yaklaşımla ele alan özgün bir sistemin kurucusu olarak çalışmalarını sürdürmektedir.</p>
+                <p>Çocukluk yıllarından itibaren kozmoloji ve fizik alanına duyduğu ilgi, yalnızca teorik bir merak olarak kalmamış; insanın varoluşunu, bedenin sınırlarını ve bilincin katmanlarını anlama yönünde derin bir içsel araştırmaya dönüşmüştür.</p>
+            </div>
+            <div class="about-timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">2010</span>
+                    <p class="timeline-text">Meditasyon pratiğine başlamasıyla birlikte, zihinsel süreçlerin ötesine geçmeyi hedefleyen disiplinli bir çalışma sürecine giren Salama, Mooji'nin öğretisi doğrultusunda farkındalık temelli pratiklerini derinleştirmiş, meditasyonu bir teknik olmaktan çıkararak yaşam biçimine dönüştürmüştür.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">—</span>
+                    <p class="timeline-text">Aynı süreçte Master Choa Kok Sui'nin enerji beden sistemine yönelik öğretileriyle tanışarak çakra, aura ve enerji akışları üzerine kapsamlı eğitimler almış; insanın çok katmanlı yapısına dair bütünsel bir perspektif geliştirmiştir. Eş zamanlı olarak Kur'an-ı Kerim çalışmaları ve tasavvufi yaklaşım üzerine yaklaşık 11 yıl boyunca farklı öğretmenlerle yürüttüğü süreç, doğu ve batı disiplinlerini bir arada değerlendirebilen özgün bir bakış açısı geliştirmesine olanak sağlamıştır.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2018</span>
+                    <p class="timeline-text">Nefes çalışmaları alanına yönelen Salama, Mustafa Kartal ile aldığı eğitimlerin ardından Antalya'da ilk nefes atölyesini kurmuş; anatomik nefes, beden farkındalığı ve sinir sistemi üzerine geliştirdiği uygulamalarla çalışmalarını derinleştirmiştir.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2019</span>
+                    <p class="timeline-text">Judith Kravitz ile Transformational Breath eğitimi sürecine dahil olarak uluslararası nefes teknikleriyle çalışmalarını genişletmiş, 500'ün üzerinde bireysel seans gerçekleştirerek nefesin yalnızca bir teknik değil, insanın içsel dönüşümünde temel bir araç olduğunu ortaya koymuştur.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2021</span>
+                    <p class="timeline-text">İkinci nefes atölyesini açan Salama, 2018–2026 yılları arasında gerçekleştirdiği 9 nefes kampı, 3 spiritüel farkındalık kampı ve 8 nefes eğitmenlik eğitimi ile bu alanda hem uygulayıcı hem de eğitmen yetiştiren bir yapı kurmuştur. Aynı dönemde Anadolu Üniversitesi İlahiyat Fakültesi'nde eğitimine devam ederek insanın içsel yapısını akademik perspektiften de ele almıştır.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2023</span>
+                    <p class="timeline-text">Salama'nın çalışmalarında temel bir kırılma noktası. Uzun yıllar boyunca öğrendiği tüm yöntemlerin ve tekniklerin, dönüşümün kendisi değil, yalnızca araçları olduğunu fark ederek üç yıl süren derin bir içsel inziva sürecine girmiştir. Bu süreçte geliştirdiği yaklaşım, insanın sinir sistemi, nefes alışkanlıkları, bedensel hafızası ve bilinç yapısı arasındaki ilişkiyi doğrudan ele alan yeni bir sistemin temelini oluşturmuştur.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">Bugün</span>
+                    <p class="timeline-text">Nefes, sinir sistemi düzenlenmesi, beden farkındalığı ve varoluşsal sorgulamayı bir araya getiren bu sistem aracılığıyla, bireylerin yaşamlarında kalıcı ve sürdürülebilir bir dönüşüm yaratmalarına rehberlik etmektedir.</p>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="about-stat-item">
+                    <div class="about-stat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div>
+                        <div class="about-stat-number">500+</div>
+                        <div class="about-stat-label">Bireysel Seans</div>
+                    </div>
+                </div>
+                <div class="about-stat-item">
+                    <div class="about-stat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4l3 3"/></svg>
+                    </div>
+                    <div>
+                        <div class="about-stat-number">9</div>
+                        <div class="about-stat-label">Nefes Kampı</div>
+                    </div>
+                </div>
+                <div class="about-stat-item">
+                    <div class="about-stat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <div>
+                        <div class="about-stat-number">8</div>
+                        <div class="about-stat-label">Eğitmenlik Eğitimi</div>
+                    </div>
+                </div>
+                <div class="about-stat-item">
+                    <div class="about-stat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div>
+                        <div class="about-stat-number">3</div>
+                        <div class="about-stat-label">Spiritüel Farkındalık Kampı</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ PROGRAMS OVERVIEW ═══ -->
+<section id="programs">
+    <div class="section-header reveal">
+        <div>
+            <span class="label-dark">Çalışma Alanları</span>
+            <h2 class="display-h2">Programlar</h2>
+        </div>
+        <p class="section-note">Her program, bireyin kendi doğal dengesine dönmesini hedefleyen yapılandırılmış bir dönüşüm sürecidir.</p>
+    </div>
+    <div class="programs-grid reveal reveal-d1">
+        <!-- Divine She -->
+        <div class="prog-card">
+            <div class="prog-inner" style="background: var(--green-2);">
+                <span class="prog-tag">Kadın Programı</span>
+                <h3 class="prog-title">Divine<br>She</h3>
+                <p class="prog-desc">Kadın bedeninin hem biyolojik hem de enerjetik katmanlarını birlikte ele alan çok boyutlu bir çalışma alanı. Kadınların birbirini iyileştirdiği değil; her katılımcının kendi bütünlüğünü yeniden kurduğu bir dönüşüm süreci.</p>
+                <a href="#divine-she" class="prog-link">Detayları İncele</a>
+            </div>
+        </div>
+        <!-- Sade.ce -->
+        <div class="prog-card">
+            <div class="prog-inner" style="background: var(--green);">
+                <div class="prog-badge">Aktif Program</div>
+                <span class="prog-tag">Dönüşüm Programı</span>
+                <h3 class="prog-title">Sade<br>.ce</h3>
+                <p class="prog-desc">Modern yaşamın getirdiği yoğunluk ve bedensel sıkışmaların sinir sistemi ve nefes alışkanlıkları üzerindeki etkilerini çözen yapılandırılmış bir dönüşüm programı. 60 günde 21 buluşma.</p>
+                <a href="#sadece" class="prog-link">Detayları İncele</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ DIVINE SHE ═══ -->
+<section id="divine-she">
+    <div class="divine-grid">
+        <div class="divine-img reveal">
+            <img src="images/divine-she.jpeg" alt="Divine She Programı">
+        </div>
+        <div class="divine-content reveal reveal-d1">
+            <span class="label-dark">Kadın Programı</span>
+            <h2 class="divine-heading">Divine<br>She</h2>
+            <div class="divine-right">
+                <p>Divine She, kadının toplumsal roller, öğrenilmiş davranış kalıpları ve bastırılmış duygusal yükler nedeniyle parçalanmış olan içsel yapısını yeniden bütünleştirmeyi hedefleyen, kadın bedeninin hem biyolojik hem de enerjetik katmanlarını birlikte ele alan çok boyutlu bir çalışma alanıdır.</p>
+                <p>Bu program kapsamında, rahim yalnızca fiziksel bir organ olarak değil, kadının duygusal hafızasını ve yaratım kapasitesini taşıyan merkezi bir alan olarak ele alınmakta; bastırılmış duygu durumları, sinir sistemi tepkileri ve bedensel blokajlar nefes, farkındalık ve somatik çalışmalar aracılığıyla çözülmektedir.</p>
+                <p>Divine She, kadınların birbirini iyileştirdiği bir alan değil; her katılımcının kendi içsel gerçekliğiyle yüzleşerek, kendi bütünlüğünü yeniden kurduğu bir dönüşüm süreci olarak yapılandırılmıştır.</p>
+            </div>
+            <a href="#cta" class="btn-green">Bilgi Al</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ SADECE DETAIL ═══ -->
+<section id="sadece">
+    <div class="sadece-inner">
+        <div class="sadece-top reveal">
+            <div>
+                <span class="label-light">Aktif Program</span>
+                <div class="sadece-display">
+                    SADE<br><span class="dot-ce">.CE</span>
+                </div>
+            </div>
+            <div>
+                <p class="sadece-right-text">
+                    Sade.ce, modern yaşamın getirdiği yoğunluk, zihinsel yüklenme ve bedensel sıkışmaların, insanın sinir sistemi ve nefes alışkanlıkları üzerindeki etkilerini doğrudan ele alarak, bireyin yaşamını zorlaştıran içsel mekanizmaları çözmeyi hedefleyen yapılandırılmış bir dönüşüm programıdır.<br><br>
+                    21 buluşmadan oluşan bu süreçte, katılımcının sinir sistemi yeniden düzenlenir, bedensel hafızada biriken yükler çözülür ve nefesin doğal akışı yeniden kazanılır.<br><br>
+                    Programın temel yaklaşımı, kişiye yeni bilgiler yüklemek değil; halihazırda işlevini yitirmiş olan düşünce, duygu ve davranış kalıplarını çözerek bireyin kendi doğal dengesine dönmesini sağlamaktır.<br><br>
+                    Bu süreç sonunda hedeflenen, daha fazla kontrol etmek değil; yaşamın içinde daha akıcı, daha hafif ve daha sürdürülebilir bir varoluş biçiminin ortaya çıkmasıdır.<br><br>
+                    <strong>Her Salı ve Perşembe — 21:30'da Zoom'da buluşuyoruz.</strong><br>
+                    <strong>60 günde 21 buluşma, toplam 21 saat.</strong>
+                </p>
+                <a href="#cta" class="btn-outline-cream">Başvur</a>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row reveal">
+            <div class="stat">
+                <div class="stat-num">150+</div>
+                <div class="stat-lbl">Nefes & Somatik</div>
+                <div class="stat-sub">Arınma · Metabolik · Rahim/Pelvik<br>Denge · Relax · Uyum · İçe Dönüş</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">20+</div>
+                <div class="stat-lbl">Meditasyon</div>
+                <div class="stat-sub">Yönlendirmeli Meditasyon<br>Ruh · Beden · Zihin · Denge</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">3+</div>
+                <div class="stat-lbl">Theta Healing</div>
+                <div class="stat-sub">Bilinçaltı Dönüşümü</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">85+</div>
+                <div class="stat-lbl">Regülasyon</div>
+                <div class="stat-sub">Sinir sistemi alışkanlıklarını güncelleme pratikleri</div>
+            </div>
+        </div>
+
+        <!-- Detail blocks -->
+        <div class="detail-row reveal reveal-d1">
+            <div class="detail-block">
+                <h4 class="detail-h">Program İçeriği</h4>
+                <ul class="detail-list">
+                    <li>60 günde 21 buluşma, toplam 21 saat</li>
+                    <li>Her Salı ve Perşembe 21:30 — Zoom</li>
+                    <li>Özel mesaj grubundan her günün akışına ait farkındalık ve pekiştirme çalışmaları</li>
+                    <li>Katılamadığınız günlerde özel pratikler ve ödevlerle yolculuğunuz durmaz</li>
+                    <li>Bazı şeyler kaydedilemez — yaşanır. Bu program da öyle.</li>
+                </ul>
+            </div>
+            <div class="detail-block">
+                <h4 class="detail-h">Programın Amacı</h4>
+                <ul class="detail-list">
+                    <li>Sinir sistemini yeniden düzenlemek</li>
+                    <li>Bedensel hafızada biriken yükleri çözmek</li>
+                    <li>Nefesin doğal akışını yeniden kazanmak</li>
+                    <li>İşlevini yitirmiş düşünce, duygu ve davranış kalıplarını çözmek</li>
+                    <li>Daha akıcı, hafif ve sürdürülebilir bir varoluş biçimi ortaya çıkarmak</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ VIDEOS ═══ -->
+<section id="videos" style="padding: 120px 64px; background: var(--white);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-header reveal" style="margin-bottom: 64px;">
+            <div>
+                <span class="label-dark">İzle</span>
+                <h2 class="display-h2">Videolar</h2>
+            </div>
+            <a href="https://www.youtube.com/@SalamaDemren" target="_blank" rel="noopener"
+               style="font-size: 11px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color .2s;"
+               onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">
+                Tüm Videolar
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+        </div>
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: var(--green); overflow: hidden;">
+                    <iframe
+                        src="https://www.youtube.com/embed/4WLa9kUjWOA"
+                        title="Salama Demren"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        style="position: absolute; inset: 0; width: 100%; height: 100%;">
+                    </iframe>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: var(--green); overflow: hidden;">
+                    <iframe
+                        src="https://www.youtube.com/embed/hhSba8Yz3yQ"
+                        title="Salama Demren"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        style="position: absolute; inset: 0; width: 100%; height: 100%;">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section id="cta">
+    <div class="cta-inner reveal">
+        <span class="label-dark">Başvuru</span>
+        <h2 class="cta-h">Yolculuğuna<br>başlamaya<br>hazır mısın?</h2>
+        <p class="cta-sub">
+            Salama'nın çalışmaları, insanın içsel dünyasını dönüştürmenin dışsal yaşam üzerindeki etkilerini doğrudan gözlemleyen, deneyimleyen ve sistematik bir yapıya dönüştüren bir yaklaşımın sonucudur. Bu yaklaşım, tekniklerin ötesine geçerek, bireyin kendi özüne temas edebildiği bir alan yaratmayı hedefler.<br><br>
+            Kontenjan sınırlıdır.
+        </p>
+        <div style="margin-top: 40px;">
+            <a href="mailto:seda.demren@gmail.com" class="btn-green">Başvuru Formu</a>
+        </div>
+        <p class="cta-contact">
+            Sorularınız için &nbsp;·&nbsp; <a href="mailto:seda.demren@gmail.com">seda.demren@gmail.com</a>
+        </p>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-brand">
+        <div class="footer-name">Salama</div>
+        <div class="footer-sub">Seda Demren</div>
+    </div>
+    <ul class="footer-links">
+        <li><a href="#about">Hakkında</a></li>
+        <li><a href="#programs">Programlar</a></li>
+        <li><a href="#sadece">Sade.ce</a></li>
+        <li><a href="#cta">İletişim</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Salama Seda Demren</div>
+</footer>
+
+<script>
+    // Navbar scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
