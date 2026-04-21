@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salama Seda Demren — Nefes & Sinir Sistemi</title>
-    <meta name="description" content="Nefes, sinir sistemi düzenlenmesi ve varoluşsal farkındalık alanlarını bütünsel bir yaklaşımla ele alan Salama Seda Demren ile içsel dönüşüm yolculuğunuza başlayın.">
+    <title>Salâma Seda Demren — Nefes & Sinir Sistemi</title>
+    <meta name="description" content="Nefes, sinir sistemi düzenlenmesi ve varoluşsal farkındalık alanlarını bütünsel bir yaklaşımla ele alan Salâma Seda Demren ile içsel dönüşüm yolculuğunuza başlayın.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -440,41 +440,6 @@
         }
         .detail-list li::before { content: '—'; color: rgba(242,237,227,.25); flex-shrink: 0; }
 
-        /* ── CTA ── */
-        #cta { padding: 160px 64px; background: var(--cream-bg); text-align: center; }
-        .cta-inner { max-width: 680px; margin: 0 auto; }
-        .cta-h {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(44px, 7vw, 88px);
-            font-weight: 300; line-height: 1.05;
-            color: var(--dark); margin-bottom: 24px;
-        }
-        .cta-sub {
-            font-size: 15px; font-weight: 300;
-            line-height: 1.85; color: var(--muted);
-            margin-bottom: 48px;
-        }
-        .date-pill {
-            display: inline-block; margin-bottom: 44px;
-            padding: 9px 26px; background: var(--green);
-            color: var(--cream); font-size: 10px;
-            font-weight: 400; letter-spacing: .22em;
-            text-transform: uppercase;
-        }
-        .btn-green {
-            display: inline-block;
-            padding: 18px 58px; background: var(--green);
-            color: var(--cream); text-decoration: none;
-            font-size: 11px; font-weight: 400;
-            letter-spacing: .22em; text-transform: uppercase;
-            transition: background .3s, transform .25s;
-        }
-        .btn-green:hover { background: var(--green-2); transform: translateY(-2px); }
-        .cta-contact {
-            margin-top: 52px; font-size: 12px;
-            letter-spacing: .08em; color: var(--muted);
-        }
-        .cta-contact a { color: var(--muted); }
 
         /* ── FOOTER ── */
         footer {
@@ -518,7 +483,8 @@
         @media (max-width: 960px) {
             nav, nav.scrolled { padding: 22px 28px; }
             .nav-links { display: none; }
-            #hero, #manifesto, #about, #programs, #sadece, #cta { padding-left: 28px; padding-right: 28px; }
+            #hero, #manifesto, #about, #programs, #sadece, #cta, #spotify, #kvkk { padding-left: 28px; padding-right: 28px; }
+            #videos { padding: 80px 28px !important; }
             .manifesto-grid, .about-grid, .sadece-top, .detail-row { grid-template-columns: 1fr; gap: 44px; }
             .programs-grid { grid-template-columns: 1fr; }
             .stats-row { grid-template-columns: 1fr 1fr; }
@@ -534,6 +500,204 @@
         @media (max-width: 520px) {
             .stats-row { grid-template-columns: 1fr; }
             .sadece-display { font-size: 80px; }
+            .form-radio-options { flex-direction: column; gap: 16px; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ── NAV SOCIAL ── */
+        .nav-social {
+            display: flex; align-items: center; gap: 20px;
+        }
+        .nav-social a {
+            color: var(--cream); opacity: .65;
+            transition: opacity .2s; display: flex; align-items: center;
+            text-decoration: none;
+        }
+        .nav-social a:hover { opacity: 1; }
+        .nav-social svg { width: 17px; height: 17px; }
+
+        /* ── VIDEOS ── */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .video-item {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #111;
+            overflow: hidden;
+        }
+        .video-item iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 960px) {
+            .videos-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ── SPOTIFY ── */
+        #spotify { padding: 80px 64px; background: var(--cream-bg); }
+        .spotify-inner { max-width: 1200px; margin: 0 auto; }
+        @media (max-width: 960px) {
+            #spotify { padding: 60px 28px; }
+            #egitimler { padding: 80px 28px !important; }
+        }
+        @media (max-width: 520px) {
+            #shopier-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 960px) and (min-width: 521px) {
+            #shopier-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+
+        /* ── SHOPIER CARDS ── */
+        .shopier-card {
+            display: flex; flex-direction: column;
+            background: var(--cream-bg);
+            border: 1px solid rgba(27,56,41,.1);
+            overflow: hidden;
+            text-decoration: none; color: inherit;
+            transition: transform .3s, box-shadow .3s;
+        }
+        .shopier-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(27,56,41,.1);
+        }
+        .shopier-card-img {
+            width: 100%; aspect-ratio: 16/10;
+            object-fit: cover; display: block;
+            background: var(--green);
+        }
+        .shopier-card-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
+        .shopier-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px; font-weight: 300;
+            color: var(--dark); margin-bottom: 12px; line-height: 1.3;
+        }
+        .shopier-card-desc {
+            font-size: 14px; font-weight: 300;
+            line-height: 1.75; color: var(--muted);
+            margin-bottom: 24px; flex: 1;
+        }
+        .shopier-card-cta {
+            font-size: 11px; font-weight: 400;
+            letter-spacing: .16em; text-transform: uppercase;
+            color: var(--green); display: inline-flex; align-items: center; gap: 8px;
+            transition: opacity .2s;
+        }
+        .shopier-card:hover .shopier-card-cta { opacity: .6; }
+
+        /* ── CONTACT FORM ── */
+        #cta { padding: 120px 64px; background: var(--cream-bg); }
+        .cta-inner { max-width: 760px; margin: 0 auto; }
+        .cta-h {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(44px, 7vw, 88px);
+            font-weight: 300; line-height: 1.05;
+            color: var(--dark); margin-bottom: 24px;
+        }
+        .cta-sub {
+            font-size: 15px; font-weight: 300;
+            line-height: 1.85; color: var(--muted);
+            margin-bottom: 56px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 36px;
+        }
+        .form-group {
+            display: flex; flex-direction: column; gap: 8px;
+            margin-bottom: 28px;
+        }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label {
+            font-size: 10px; font-weight: 500;
+            letter-spacing: .22em; text-transform: uppercase;
+            color: var(--muted);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%; padding: 12px 0;
+            background: transparent; border: none;
+            border-bottom: 1px solid rgba(27,56,41,.2);
+            font-family: 'Jost', sans-serif; font-size: 15px;
+            font-weight: 300; color: var(--dark);
+            outline: none; transition: border-color .25s;
+            -webkit-appearance: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus { border-bottom-color: var(--green); }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: rgba(90,107,94,.35); }
+        .form-group textarea { resize: none; min-height: 110px; padding-top: 12px; }
+        .form-radio-wrap { margin-bottom: 28px; grid-column: 1 / -1; }
+        .form-radio-wrap .form-label {
+            font-size: 10px; font-weight: 500;
+            letter-spacing: .22em; text-transform: uppercase;
+            color: var(--muted); display: block; margin-bottom: 16px;
+        }
+        .form-radio-options { display: flex; gap: 36px; }
+        .form-radio-label {
+            display: flex; align-items: center; gap: 10px;
+            cursor: pointer; font-size: 14px; font-weight: 300; color: var(--dark);
+        }
+        .form-radio-label input[type="radio"] {
+            width: 16px; height: 16px;
+            accent-color: var(--green); cursor: pointer; flex-shrink: 0;
+        }
+        .form-kvkk {
+            grid-column: 1 / -1; margin-bottom: 36px;
+            display: flex; align-items: flex-start; gap: 12px;
+        }
+        .form-kvkk input[type="checkbox"] {
+            width: 16px; height: 16px;
+            accent-color: var(--green); cursor: pointer;
+            flex-shrink: 0; margin-top: 3px;
+        }
+        .form-kvkk label {
+            font-size: 13px; font-weight: 300;
+            color: var(--muted); line-height: 1.65; cursor: pointer;
+        }
+        .form-kvkk label a { color: var(--green); text-decoration: underline; }
+        .form-submit-row { grid-column: 1 / -1; display: flex; align-items: center; gap: 28px; }
+        .form-status { font-size: 13px; font-weight: 300; color: var(--muted); min-height: 20px; }
+        .form-status.success { color: var(--green); }
+        .form-status.error { color: #c0392b; }
+        .btn-green {
+            display: inline-block; padding: 18px 58px; background: var(--green);
+            color: var(--cream); text-decoration: none;
+            font-size: 11px; font-weight: 400;
+            letter-spacing: .22em; text-transform: uppercase;
+            transition: background .3s, transform .25s;
+            border: none; cursor: pointer; font-family: 'Jost', sans-serif;
+        }
+        .btn-green:hover { background: var(--green-2); transform: translateY(-2px); }
+        .btn-green:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+        /* ── KVKK ── */
+        #kvkk { padding: 80px 64px; background: var(--white); border-top: 1px solid rgba(27,56,41,.08); }
+        .kvkk-inner { max-width: 860px; margin: 0 auto; }
+        .kvkk-inner h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px; font-weight: 300; color: var(--dark); margin-bottom: 28px;
+        }
+        .kvkk-inner h4 {
+            font-size: 11px; font-weight: 500;
+            letter-spacing: .18em; text-transform: uppercase;
+            color: var(--muted); margin: 28px 0 12px;
+        }
+        .kvkk-inner p {
+            font-size: 14px; font-weight: 300;
+            line-height: 1.95; color: #4A5C50; margin-bottom: 12px;
+        }
+        @media (max-width: 960px) {
+            #cta { padding: 80px 28px; }
+            #kvkk { padding: 60px 28px; }
         }
     </style>
 </head>
@@ -541,7 +705,7 @@
 
 <!-- ═══ NAV ═══ -->
 <nav id="nav">
-    <a href="#" class="nav-logo">Salama</a>
+    <a href="#" class="nav-logo">Salâma</a>
     <ul class="nav-links">
         <li><a href="#about">Hakkında</a></li>
         <li><a href="#divine-she">Divine She</a></li>
@@ -549,15 +713,30 @@
         <li><a href="#videos">Videolar</a></li>
         <li><a href="#cta" class="nav-cta">Başvur</a></li>
     </ul>
+    <div class="nav-social">
+        <a href="https://www.instagram.com/salama_demren" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+        </a>
+        <a href="https://www.youtube.com/@SalamaDemren" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.6.47a2.78 2.78 0 0 0-1.95 1.95A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+            </svg>
+        </a>
+    </div>
 </nav>
 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
     <p class="hero-eyebrow">Nefes &nbsp;·&nbsp; Sinir Sistemi &nbsp;·&nbsp; Varoluşsal Farkındalık</p>
-    <h1 class="hero-name">SALAMA</h1>
+    <h1 class="hero-name">SALÂMA</h1>
     <div class="hero-line"></div>
     <p class="hero-tagline">İçsel dönüşüm, daha fazlasını eklemekle değil —<br>taşımanın gerekmeyenleri bırakmakla başlar.</p>
-    <a href="#sadece" class="hero-cta">Sade.ce Programı</a>
+    <a href="#programs" class="hero-cta">Çalışma Alanları</a>
     <div class="scroll-line"></div>
 </section>
 
@@ -590,21 +769,21 @@
     <div class="about-grid">
         <div class="about-img-wrap reveal">
             <div class="about-img">
-                <img src="images/salama-portrait.jpeg" alt="Salama Seda Demren">
+                <img src="images/salama-portrait.jpeg" alt="Salâma Seda Demren">
             </div>
         </div>
         <div class="about-content reveal reveal-d1">
             <span class="label-dark">Hakkında</span>
-            <h2 class="about-name">Salama<br>Seda Demren</h2>
+            <h2 class="about-name">Salâma<br>Seda Demren</h2>
             <p class="about-role">Nefes &nbsp;·&nbsp; Sinir Sistemi &nbsp;·&nbsp; Varoluşsal Farkındalık</p>
             <div class="about-bio">
-                <p>1981 İstanbul doğumlu olan Salama, kurumsal hayatla başlayan profesyonel yolculuğunu, insanın içsel mekanizmalarını anlamaya yönelik çok katmanlı bir araştırma ve uygulama sürecine dönüştürerek, bugün nefes, sinir sistemi ve varoluşsal farkındalık alanlarını bütünsel bir yaklaşımla ele alan özgün bir sistemin kurucusu olarak çalışmalarını sürdürmektedir.</p>
+                <p>1981 İstanbul doğumlu olan Salâma, kurumsal hayatla başlayan profesyonel yolculuğunu, insanın içsel mekanizmalarını anlamaya yönelik çok katmanlı bir araştırma ve uygulama sürecine dönüştürerek, bugün nefes, sinir sistemi ve varoluşsal farkındalık alanlarını bütünsel bir yaklaşımla ele alan özgün bir sistemin kurucusu olarak çalışmalarını sürdürmektedir.</p>
                 <p>Çocukluk yıllarından itibaren kozmoloji ve fizik alanına duyduğu ilgi, yalnızca teorik bir merak olarak kalmamış; insanın varoluşunu, bedenin sınırlarını ve bilincin katmanlarını anlama yönünde derin bir içsel araştırmaya dönüşmüştür.</p>
             </div>
             <div class="about-timeline">
                 <div class="timeline-item">
                     <span class="timeline-year">2010</span>
-                    <p class="timeline-text">Meditasyon pratiğine başlamasıyla birlikte, zihinsel süreçlerin ötesine geçmeyi hedefleyen disiplinli bir çalışma sürecine giren Salama, Mooji'nin öğretisi doğrultusunda farkındalık temelli pratiklerini derinleştirmiş, meditasyonu bir teknik olmaktan çıkararak yaşam biçimine dönüştürmüştür.</p>
+                    <p class="timeline-text">Meditasyon pratiğine başlamasıyla birlikte, zihinsel süreçlerin ötesine geçmeyi hedefleyen disiplinli bir çalışma sürecine giren Salâma, Mooji'nin öğretisi doğrultusunda farkındalık temelli pratiklerini derinleştirmiş, meditasyonu bir teknik olmaktan çıkararak yaşam biçimine dönüştürmüştür.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-year">—</span>
@@ -612,7 +791,7 @@
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-year">2018</span>
-                    <p class="timeline-text">Nefes çalışmaları alanına yönelen Salama, Mustafa Kartal ile aldığı eğitimlerin ardından Antalya'da ilk nefes atölyesini kurmuş; anatomik nefes, beden farkındalığı ve sinir sistemi üzerine geliştirdiği uygulamalarla çalışmalarını derinleştirmiştir.</p>
+                    <p class="timeline-text">Nefes çalışmaları alanına yönelen Salâma, Mustafa Kartal ile aldığı eğitimlerin ardından Antalya'da ilk nefes atölyesini kurmuş; anatomik nefes, beden farkındalığı ve sinir sistemi üzerine geliştirdiği uygulamalarla çalışmalarını derinleştirmiştir.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-year">2019</span>
@@ -620,11 +799,11 @@
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-year">2021</span>
-                    <p class="timeline-text">İkinci nefes atölyesini açan Salama, 2018–2026 yılları arasında gerçekleştirdiği 9 nefes kampı, 3 spiritüel farkındalık kampı ve 8 nefes eğitmenlik eğitimi ile bu alanda hem uygulayıcı hem de eğitmen yetiştiren bir yapı kurmuştur. Aynı dönemde Anadolu Üniversitesi İlahiyat Fakültesi'nde eğitimine devam ederek insanın içsel yapısını akademik perspektiften de ele almıştır.</p>
+                    <p class="timeline-text">İkinci nefes atölyesini açan Salâma, 2018–2026 yılları arasında gerçekleştirdiği 9 nefes kampı, 3 spiritüel farkındalık kampı ve 8 nefes eğitmenlik eğitimi ile bu alanda hem uygulayıcı hem de eğitmen yetiştiren bir yapı kurmuştur. Aynı dönemde Anadolu Üniversitesi İlahiyat Fakültesi'nde eğitimine devam ederek insanın içsel yapısını akademik perspektiften de ele almıştır.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-year">2023</span>
-                    <p class="timeline-text">Salama'nın çalışmalarında temel bir kırılma noktası. Uzun yıllar boyunca öğrendiği tüm yöntemlerin ve tekniklerin, dönüşümün kendisi değil, yalnızca araçları olduğunu fark ederek üç yıl süren derin bir içsel inziva sürecine girmiştir. Bu süreçte geliştirdiği yaklaşım, insanın sinir sistemi, nefes alışkanlıkları, bedensel hafızası ve bilinç yapısı arasındaki ilişkiyi doğrudan ele alan yeni bir sistemin temelini oluşturmuştur.</p>
+                    <p class="timeline-text">Salâma'nın çalışmalarında temel bir kırılma noktası. Uzun yıllar boyunca öğrendiği tüm yöntemlerin ve tekniklerin, dönüşümün kendisi değil, yalnızca araçları olduğunu fark ederek üç yıl süren derin bir içsel inziva sürecine girmiştir. Bu süreçte geliştirdiği yaklaşım, insanın sinir sistemi, nefes alışkanlıkları, bedensel hafızası ve bilinç yapısı arasındaki ilişkiyi doğrudan ele alan yeni bir sistemin temelini oluşturmuştur.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-year">Bugün</span>
@@ -686,7 +865,7 @@
         <!-- Divine She -->
         <div class="prog-card">
             <div class="prog-inner" style="background: var(--green-2);">
-                <span class="prog-tag">Kadın Programı</span>
+                <span class="prog-tag">Feminen Enerji Programı</span>
                 <h3 class="prog-title">Divine<br>She</h3>
                 <p class="prog-desc">Kadın bedeninin hem biyolojik hem de enerjetik katmanlarını birlikte ele alan çok boyutlu bir çalışma alanı. Kadınların birbirini iyileştirdiği değil; her katılımcının kendi bütünlüğünü yeniden kurduğu bir dönüşüm süreci.</p>
                 <a href="#divine-she" class="prog-link">Detayları İncele</a>
@@ -712,7 +891,7 @@
             <img src="images/divine-she.jpeg" alt="Divine She Programı">
         </div>
         <div class="divine-content reveal reveal-d1">
-            <span class="label-dark">Kadın Programı</span>
+            <span class="label-dark">Feminen Enerji Programı</span>
             <h2 class="divine-heading">Divine<br>She</h2>
             <div class="divine-right">
                 <p>Divine She, kadının toplumsal roller, öğrenilmiş davranış kalıpları ve bastırılmış duygusal yükler nedeniyle parçalanmış olan içsel yapısını yeniden bütünleştirmeyi hedefleyen, kadın bedeninin hem biyolojik hem de enerjetik katmanlarını birlikte ele alan çok boyutlu bir çalışma alanıdır.</p>
@@ -812,57 +991,192 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
             </a>
         </div>
-        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-                <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: var(--green); overflow: hidden;">
-                    <iframe
-                        src="https://www.youtube.com/embed/4WLa9kUjWOA"
-                        title="Salama Demren"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        style="position: absolute; inset: 0; width: 100%; height: 100%;">
-                    </iframe>
-                </div>
+        <div class="videos-grid reveal">
+            <!-- Video 1 -->
+            <div class="video-item">
+                <iframe
+                    src="https://www.youtube.com/embed/4WLa9kUjWOA"
+                    title="Salâma Demren"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-                <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: var(--green); overflow: hidden;">
-                    <iframe
-                        src="https://www.youtube.com/embed/hhSba8Yz3yQ"
-                        title="Salama Demren"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        style="position: absolute; inset: 0; width: 100%; height: 100%;">
-                    </iframe>
-                </div>
+            <!-- Video 2 -->
+            <div class="video-item">
+                <iframe
+                    src="https://www.youtube.com/embed/hhSba8Yz3yQ"
+                    title="Salâma Demren"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <!-- Video 3 — TODO: YouTube video ID'sini güncelleyin -->
+            <div class="video-item">
+                <iframe
+                    src="https://www.youtube.com/embed/4WLa9kUjWOA"
+                    title="Salâma Demren"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <!-- Video 4 — TODO: YouTube video ID'sini güncelleyin -->
+            <div class="video-item">
+                <iframe
+                    src="https://www.youtube.com/embed/hhSba8Yz3yQ"
+                    title="Salâma Demren"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ═══ CTA ═══ -->
+<!-- ═══ SPOTIFY ═══ -->
+<section id="spotify">
+    <div class="spotify-inner">
+        <div class="section-header reveal" style="margin-bottom: 48px;">
+            <div>
+                <span class="label-dark">Dinle</span>
+                <h2 class="display-h2">Podcast</h2>
+            </div>
+            <a href="https://open.spotify.com/show/1wkjZQe3xgOVusOktjjdQH" target="_blank" rel="noopener"
+               style="font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;"
+               onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">
+                Tümünü Dinle
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+        </div>
+        <div class="reveal">
+            <iframe
+                style="border-radius:4px"
+                src="https://open.spotify.com/embed/show/1wkjZQe3xgOVusOktjjdQH?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                frameborder="0"
+                allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ EĞİTİMLER (Shopier) ═══ -->
+<section id="egitimler" style="padding: 120px 64px; background: var(--white);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-header reveal" style="margin-bottom: 64px;">
+            <div>
+                <span class="label-dark">Online Eğitimler</span>
+                <h2 class="display-h2">Dijital İçerikler</h2>
+            </div>
+            <a href="https://www.shopier.com/sedademren" target="_blank" rel="noopener"
+               style="font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;"
+               onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">
+                Tümünü Gör
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+        </div>
+        <div id="shopier-grid" class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+            <div style="grid-column:1/-1;padding:40px 0;color:var(--muted);font-size:14px;font-weight:300;letter-spacing:.06em;">Yükleniyor…</div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CTA / İLETİŞİM ═══ -->
 <section id="cta">
     <div class="cta-inner reveal">
-        <span class="label-dark">Başvuru</span>
+        <span class="label-dark">İletişim</span>
         <h2 class="cta-h">Yolculuğuna<br>başlamaya<br>hazır mısın?</h2>
         <p class="cta-sub">
-            Salama'nın çalışmaları, insanın içsel dünyasını dönüştürmenin dışsal yaşam üzerindeki etkilerini doğrudan gözlemleyen, deneyimleyen ve sistematik bir yapıya dönüştüren bir yaklaşımın sonucudur. Bu yaklaşım, tekniklerin ötesine geçerek, bireyin kendi özüne temas edebildiği bir alan yaratmayı hedefler.<br><br>
-            Kontenjan sınırlıdır.
+            Salâma'nın çalışmaları, insanın içsel dünyasını dönüştürmenin dışsal yaşam üzerindeki etkilerini doğrudan gözlemleyen, deneyimleyen ve sistematik bir yapıya dönüştüren bir yaklaşımın sonucudur. Kontenjan sınırlıdır.
         </p>
-        <div style="margin-top: 40px;">
-            <a href="mailto:seda.demren@gmail.com" class="btn-green">Başvuru Formu</a>
-        </div>
-        <p class="cta-contact">
-            Sorularınız için &nbsp;·&nbsp; <a href="mailto:seda.demren@gmail.com">seda.demren@gmail.com</a>
-        </p>
+
+        <!--
+        SUPABASE KURULUMU:
+        1. Supabase projenizde aşağıdaki SQL'i çalıştırın:
+           CREATE TABLE contact_requests (
+             id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+             created_at timestamptz DEFAULT now(),
+             name text NOT NULL,
+             email text NOT NULL,
+             phone text NOT NULL,
+             message text NOT NULL,
+             contact_preference text NOT NULL CHECK (contact_preference IN ('phone','email'))
+           );
+           ALTER TABLE contact_requests ENABLE ROW LEVEL SECURITY;
+           CREATE POLICY "Anonim ekleme" ON contact_requests FOR INSERT WITH CHECK (true);
+        2. Aşağıdaki SUPABASE_URL ve SUPABASE_ANON_KEY değerlerini doldurun.
+        -->
+
+        <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="cf-name">Ad Soyad *</label>
+                    <input type="text" id="cf-name" name="name" placeholder="Adınız ve soyadınız" required>
+                </div>
+                <div class="form-group">
+                    <label for="cf-email">E-posta *</label>
+                    <input type="email" id="cf-email" name="email" placeholder="ornek@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="cf-phone">Telefon *</label>
+                    <input type="tel" id="cf-phone" name="phone" placeholder="+90 5xx xxx xx xx" required>
+                </div>
+                <div class="form-group full">
+                    <label for="cf-message">Mesaj *</label>
+                    <textarea id="cf-message" name="message" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                </div>
+                <div class="form-radio-wrap">
+                    <span class="form-label">İletişim Tercihi *</span>
+                    <div class="form-radio-options">
+                        <label class="form-radio-label">
+                            <input type="radio" name="contact_preference" value="phone" required>
+                            Aranmak istiyorum
+                        </label>
+                        <label class="form-radio-label">
+                            <input type="radio" name="contact_preference" value="email">
+                            E-posta ile iletişim
+                        </label>
+                    </div>
+                </div>
+                <div class="form-kvkk">
+                    <input type="checkbox" id="cf-kvkk" required>
+                    <label for="cf-kvkk">
+                        <a href="#kvkk">KVKK Aydınlatma Metni</a>'ni okudum, kişisel verilerimin işlenmesine onay veriyorum.
+                    </label>
+                </div>
+                <div class="form-submit-row">
+                    <button type="submit" class="btn-green" id="cf-submit">Gönder</button>
+                    <span class="form-status" id="cf-status"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- ═══ KVKK ═══ -->
+<section id="kvkk">
+    <div class="kvkk-inner">
+        <h3>KVKK Aydınlatma Metni</h3>
+        <h4>Veri Sorumlusu</h4>
+        <p>Salâma Seda Demren — seda.demren@gmail.com</p>
+        <h4>İşlenen Kişisel Veriler</h4>
+        <p>İletişim formumuz aracılığıyla ad-soyad, e-posta adresi, telefon numarası, mesaj içeriği ve iletişim tercihiniz toplanmaktadır. İleride eklenecek Google Analytics ve Meta (Instagram) piksel araçları aracılığıyla anonim ziyaretçi davranışı verileri de işlenebilecektir.</p>
+        <h4>İşleme Amacı</h4>
+        <p>Toplanan kişisel veriler; program başvurusu değerlendirmesi, iletişim taleplerinizin yanıtlanması ve program bilgilendirmesi amacıyla kullanılmaktadır. Piksel verileri pazarlama ve reklam optimizasyonu amacıyla işlenmektedir.</p>
+        <h4>Veri Güvenliği ve Aktarım</h4>
+        <p>Verileriniz Supabase altyapısı üzerinde güvenli biçimde saklanmakta olup üçüncü şahıslarla paylaşılmamaktadır. Veritabanı erişimi şifreli bağlantı ile sağlanmaktadır.</p>
+        <h4>Haklarınız</h4>
+        <p>6698 sayılı KVKK'nın 11. maddesi uyarınca kişisel verilerinize erişim, düzeltme, silme veya işlemenin kısıtlanmasını talep etme haklarına sahipsiniz. Talepleriniz için: <a href="mailto:seda.demren@gmail.com" style="color:var(--green)">seda.demren@gmail.com</a></p>
+        <p style="margin-top:24px; font-size:12px; color:var(--muted);">Son güncelleme: Nisan 2026</p>
     </div>
 </section>
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
     <div class="footer-brand">
-        <div class="footer-name">Salama</div>
+        <div class="footer-name">Salâma</div>
         <div class="footer-sub">Seda Demren</div>
     </div>
     <ul class="footer-links">
@@ -870,23 +1184,120 @@
         <li><a href="#programs">Programlar</a></li>
         <li><a href="#sadece">Sade.ce</a></li>
         <li><a href="#cta">İletişim</a></li>
+        <li><a href="#kvkk">KVKK</a></li>
     </ul>
-    <div class="footer-copy">© 2026 Salama Seda Demren</div>
+    <div class="footer-copy">© 2026 Salâma Seda Demren</div>
 </footer>
 
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-    // Navbar scroll
+    // ── SUPABASE YAPILANDIRMASI ──
+    // TODO: Supabase proje URL ve anon key değerlerinizi buraya girin
+    const SUPABASE_URL  = 'YOUR_SUPABASE_URL';
+    const SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY';
+    const db = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON) : null;
+
+    // ── NAVBAR SCROLL ──
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
         nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    // Scroll reveal
+    // ── SCROLL REVEAL ──
     const revealEls = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => io.observe(el));
+
+    // ── SHOPİER ÜRÜNLERİ ──
+    (async function loadShopier() {
+        const grid = document.getElementById('shopier-grid');
+        if (!grid) return;
+        try {
+            const res = await fetch('/api/shopier-products');
+            if (!res.ok) throw new Error('api-error');
+            const { products } = await res.json();
+
+            if (!products || products.length === 0) {
+                grid.innerHTML = '<p style="color:var(--muted);font-size:14px;font-weight:300;grid-column:1/-1;padding:20px 0;">Yakında yeni içerikler eklenecek.</p>';
+                return;
+            }
+
+            // Responsive sütun sayısı
+            const cols = window.innerWidth > 960 ? 3 : window.innerWidth > 520 ? 2 : 1;
+            grid.style.gridTemplateColumns = `repeat(${cols},1fr)`;
+
+            grid.innerHTML = products.map(p => `
+                <a href="${p.url}" target="_blank" rel="noopener" class="shopier-card">
+                    ${p.image ? `<img class="shopier-card-img" src="${p.image}" alt="${p.name}" loading="lazy">` : '<div class="shopier-card-img"></div>'}
+                    <div class="shopier-card-body">
+                        <h3 class="shopier-card-title">${p.name}</h3>
+                        ${p.description ? `<p class="shopier-card-desc">${p.description}</p>` : ''}
+                        <span class="shopier-card-cta">İncele &nbsp;→</span>
+                    </div>
+                </a>`).join('');
+        } catch {
+            grid.innerHTML = '<p style="color:var(--muted);font-size:14px;font-weight:300;grid-column:1/-1;padding:20px 0;">İçerikler yüklenemedi.</p>';
+        }
+    })();
+
+    // ── İLETİŞİM FORMU ──
+    const form    = document.getElementById('contact-form');
+    const submit  = document.getElementById('cf-submit');
+    const status  = document.getElementById('cf-status');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name     = document.getElementById('cf-name').value.trim();
+        const email    = document.getElementById('cf-email').value.trim();
+        const phone    = document.getElementById('cf-phone').value.trim();
+        const message  = document.getElementById('cf-message').value.trim();
+        const pref     = form.querySelector('input[name="contact_preference"]:checked');
+        const kvkk     = document.getElementById('cf-kvkk').checked;
+
+        if (!name || !email || !phone || !message || !pref || !kvkk) {
+            status.textContent = 'Lütfen tüm alanları doldurun.';
+            status.className = 'form-status error';
+            return;
+        }
+
+        submit.disabled = true;
+        status.textContent = 'Gönderiliyor...';
+        status.className = 'form-status';
+
+        if (!db || SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+            // Supabase henüz yapılandırılmadı
+            setTimeout(() => {
+                status.textContent = 'Supabase bağlantısı yapılandırılmamış. Lütfen SUPABASE_URL ve SUPABASE_ANON değerlerini güncelleyin.';
+                status.className = 'form-status error';
+                submit.disabled = false;
+            }, 400);
+            return;
+        }
+
+        const { error } = await db.from('contact_requests').insert({
+            name,
+            email,
+            phone,
+            message,
+            contact_preference: pref.value
+        });
+
+        if (error) {
+            status.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+            status.className = 'form-status error';
+            submit.disabled = false;
+        } else {
+            form.reset();
+            status.textContent = 'Mesajınız iletildi. En kısa sürede size ulaşacağız.';
+            status.className = 'form-status success';
+            submit.disabled = false;
+        }
+    });
 </script>
 
 </body>
