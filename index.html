@@ -66,40 +66,8 @@
         }
         .nav-cta:hover { background: rgba(242,237,227,.12) !important; }
 
-        /* ── NAV DROPDOWN ── */
-        .nav-dropdown { position: relative; }
-        .nav-dropdown > a { cursor: default; }
-        .nav-dropdown-menu {
-            position: absolute; top: calc(100% + 20px); left: 50%;
-            transform: translateX(-50%);
-            background: rgba(27,56,41,.98);
-            backdrop-filter: blur(12px);
-            list-style: none;
-            min-width: 260px;
-            padding: 8px 0;
-            border: 1px solid rgba(242,237,227,.1);
-            opacity: 0; visibility: hidden;
-            transition: opacity .2s, visibility .2s, top .2s;
-            pointer-events: none;
-        }
-        .nav-dropdown:hover .nav-dropdown-menu {
-            opacity: 1; visibility: visible;
-            top: calc(100% + 12px);
-            pointer-events: auto;
-        }
-        .nav-dropdown-menu li a {
-            display: block;
-            padding: 11px 24px;
-            font-size: 10px; font-weight: 400;
-            letter-spacing: .14em; text-transform: uppercase;
-            color: rgba(242,237,227,.65); text-decoration: none;
-            opacity: 1 !important;
-            transition: color .2s, background .2s;
-        }
-        .nav-dropdown-menu li a:hover {
-            color: var(--cream);
-            background: rgba(242,237,227,.06);
-        }
+        /* ── PROG CARD AS LINK ── */
+        a.prog-card { text-decoration: none; display: block; }
 
         /* ── HERO ── */
         #hero {
@@ -520,17 +488,7 @@
     <a href="#" class="nav-logo">Salâma</a>
     <ul class="nav-links">
         <li><a href="#about">Hakkında</a></li>
-        <li class="nav-dropdown">
-            <a href="#programs">Programlar</a>
-            <ul class="nav-dropdown-menu">
-                <li><a href="nefes-dinamigi.html">Nefes Dinamiği ve Analizi</a></li>
-                <li><a href="divine-she.html">Divine She</a></li>
-                <li><a href="pure-one.html">PURE ONE "su"</a></li>
-                <li><a href="rahim-detox.html">Rahim Detox</a></li>
-                <li><a href="ozel-ders.html">Özel Ders "nefes"</a></li>
-                <li><a href="sadece.html">Sade.ce</a></li>
-            </ul>
-        </li>
+        <li><a href="#programs">Programlar</a></li>
         <li><a href="#videos">Videolar</a></li>
         <li><a href="#cta" class="nav-cta">Başvur</a></li>
     </ul>
@@ -659,49 +617,49 @@
         <p class="section-note">Her program, bireyin kendi doğal dengesine dönmesini hedefleyen yapılandırılmış bir dönüşüm sürecidir.</p>
     </div>
     <div class="programs-grid reveal reveal-d1">
-        <div class="prog-card">
+        <a class="prog-card" href="nefes-dinamigi.html">
             <div class="prog-inner" style="background: #1B3829;">
                 <span class="prog-tag">Nefes Programı</span>
                 <h3 class="prog-title">Nefes Dinamiği<br>ve Analizi</h3>
-                <a href="nefes-dinamigi.html" class="prog-link">Detayları İncele</a>
+                <span class="prog-link">Detayları İncele</span>
             </div>
-        </div>
-        <div class="prog-card">
+        </a>
+        <a class="prog-card" href="divine-she.html">
             <div class="prog-inner" style="background: #243F30;">
                 <span class="prog-tag">Feminen Enerji Programı</span>
                 <h3 class="prog-title">Divine<br>She</h3>
-                <a href="divine-she.html" class="prog-link">Detayları İncele</a>
+                <span class="prog-link">Detayları İncele</span>
             </div>
-        </div>
-        <div class="prog-card">
+        </a>
+        <a class="prog-card" href="pure-one.html">
             <div class="prog-inner" style="background: #1E3C2B;">
                 <span class="prog-tag">Arınma Programı</span>
                 <h3 class="prog-title">PURE ONE<br>"su"</h3>
-                <a href="pure-one.html" class="prog-link">Detayları İncele</a>
+                <span class="prog-link">Detayları İncele</span>
             </div>
-        </div>
-        <div class="prog-card">
+        </a>
+        <a class="prog-card" href="rahim-detox.html">
             <div class="prog-inner" style="background: #2A4535;">
                 <span class="prog-tag">Kadın Sağlığı</span>
                 <h3 class="prog-title">Rahim<br>Detox</h3>
-                <a href="rahim-detox.html" class="prog-link">Detayları İncele</a>
+                <span class="prog-link">Detayları İncele</span>
             </div>
-        </div>
-        <div class="prog-card">
+        </a>
+        <a class="prog-card" href="ozel-ders.html">
             <div class="prog-inner" style="background: #162E23;">
                 <span class="prog-tag">Birebir Çalışma</span>
                 <h3 class="prog-title">Özel Ders<br>"nefes"</h3>
-                <a href="ozel-ders.html" class="prog-link">Detayları İncele</a>
+                <span class="prog-link">Detayları İncele</span>
             </div>
-        </div>
-        <div class="prog-card">
+        </a>
+        <a class="prog-card" href="sadece.html">
             <div class="prog-inner" style="background: #1B3829;">
                 <div class="prog-badge">Aktif Program</div>
                 <span class="prog-tag">Dönüşüm Programı</span>
                 <h3 class="prog-title">Sade<br>.ce</h3>
-                <a href="sadece.html" class="prog-link">Detayları İncele</a>
+                <span class="prog-link">Detayları İncele</span>
             </div>
-        </div>
+        </a>
     </div>
 </section>
 

@@ -31,11 +31,6 @@
         .nav-links > li > a:hover { opacity: 1; }
         .nav-cta { padding: 10px 28px; border: 1px solid rgba(242,237,227,.45); color: var(--cream) !important; opacity: 1 !important; transition: background .25s !important; }
         .nav-cta:hover { background: rgba(242,237,227,.12) !important; }
-        .nav-dropdown { position: relative; }
-        .nav-dropdown-menu { position: absolute; top: calc(100% + 20px); left: 50%; transform: translateX(-50%); background: rgba(27,56,41,.98); backdrop-filter: blur(12px); list-style: none; min-width: 260px; padding: 8px 0; border: 1px solid rgba(242,237,227,.1); opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s, top .2s; pointer-events: none; }
-        .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; top: calc(100% + 12px); pointer-events: auto; }
-        .nav-dropdown-menu li a { display: block; padding: 11px 24px; font-size: 10px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(242,237,227,.65); text-decoration: none; opacity: 1 !important; transition: color .2s, background .2s; }
-        .nav-dropdown-menu li a:hover { color: var(--cream); background: rgba(242,237,227,.06); }
         .nav-social { display: flex; align-items: center; gap: 20px; }
         .nav-social a { color: var(--cream); opacity: .65; transition: opacity .2s; display: flex; align-items: center; text-decoration: none; }
         .nav-social a:hover { opacity: 1; }
@@ -45,40 +40,39 @@
         .page-hero { min-height: 70vh; background: var(--green); display: flex; flex-direction: column; justify-content: flex-end; padding: 160px 64px 80px; position: relative; overflow: hidden; }
         .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(27,56,41,.8) 0%, transparent 70%); pointer-events: none; }
         .page-hero-inner { position: relative; z-index: 1; max-width: 900px; }
-        .page-tag { font-size: 10px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: rgba(242,237,227,.45); margin-bottom: 20px; display: block; }
-        .page-badge { display: inline-block; margin-bottom: 20px; background: rgba(242,237,227,.14); padding: 7px 16px; font-size: 9px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--cream); }
-        .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(64px, 10vw, 120px); font-weight: 300; line-height: .88; color: var(--cream); margin-bottom: 28px; }
+        .page-tag { font-size: 10px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: rgba(242,237,227,.45); margin-bottom: 12px; display: block; }
+        .page-badge { display: inline-block; margin-bottom: 16px; background: rgba(242,237,227,.14); padding: 7px 16px; font-size: 9px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--cream); }
+        .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(64px, 10vw, 120px); font-weight: 300; line-height: .88; color: var(--cream); }
         .page-title .dot-ce { font-size: .38em; letter-spacing: .08em; color: rgba(242,237,227,.4); font-family: 'Jost', sans-serif; font-weight: 300; }
 
         /* ── CONTENT ── */
-        .page-body { background: var(--green); }
-        .page-content { max-width: 1200px; margin: 0 auto; padding: 0 64px 80px; }
-        .sadece-desc { max-width: 700px; }
-        .sadece-desc p { font-size: 16px; font-weight: 300; line-height: 2; color: rgba(242,237,227,.65); margin-bottom: 24px; }
-        .sadece-desc strong { color: var(--cream); font-weight: 400; }
+        .page-content { max-width: 1200px; margin: 0 auto; padding: 100px 64px 120px; }
+        .sadece-desc { max-width: 740px; margin-bottom: 80px; }
+        .sadece-desc p { font-size: 16px; font-weight: 300; line-height: 2; color: #4A5C50; margin-bottom: 24px; }
+        .sadece-desc strong { color: var(--dark); font-weight: 400; }
 
         /* ── STATS ── */
-        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin: 64px 0 3px; }
-        .stat { padding: 48px 36px; background: rgba(242,237,227,.04); border: 1px solid rgba(242,237,227,.07); }
-        .stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(50px, 5vw, 74px); font-weight: 300; color: var(--cream); line-height: 1; margin-bottom: 10px; }
-        .stat-lbl { font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(242,237,227,.45); margin-bottom: 8px; }
-        .stat-sub { font-size: 11px; font-weight: 300; line-height: 1.65; color: rgba(242,237,227,.3); }
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin-bottom: 3px; }
+        .stat { padding: 48px 36px; background: var(--white); border: 1px solid rgba(27,56,41,.08); }
+        .stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(50px, 5vw, 74px); font-weight: 300; color: var(--green); line-height: 1; margin-bottom: 10px; }
+        .stat-lbl { font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+        .stat-sub { font-size: 11px; font-weight: 300; line-height: 1.65; color: #4A5C50; }
 
         /* ── DETAIL BLOCKS ── */
         .detail-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
-        .detail-block { padding: 56px 52px; background: rgba(242,237,227,.04); border: 1px solid rgba(242,237,227,.07); }
-        .detail-h { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--cream); margin-bottom: 28px; }
+        .detail-block { padding: 56px 52px; background: var(--white); border: 1px solid rgba(27,56,41,.08); }
+        .detail-h { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--dark); margin-bottom: 28px; }
         .detail-list { list-style: none; }
-        .detail-list li { font-size: 14px; font-weight: 300; line-height: 1.7; color: rgba(242,237,227,.55); padding: 13px 0; border-bottom: 1px solid rgba(242,237,227,.06); display: flex; gap: 16px; }
-        .detail-list li::before { content: '—'; color: rgba(242,237,227,.25); flex-shrink: 0; }
+        .detail-list li { font-size: 14px; font-weight: 300; line-height: 1.7; color: var(--muted); padding: 13px 0; border-bottom: 1px solid rgba(27,56,41,.06); display: flex; gap: 16px; }
+        .detail-list li::before { content: '—'; color: rgba(27,56,41,.25); flex-shrink: 0; }
 
         /* ── CTA ── */
-        .page-divider { width: 44px; height: 1px; background: rgba(242,237,227,.15); margin: 56px 0; }
+        .page-divider { width: 44px; height: 1px; background: rgba(27,56,41,.15); margin: 72px 0 56px; }
         .page-cta-row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-        .btn-green { display: inline-block; padding: 18px 58px; background: var(--cream); color: var(--green); text-decoration: none; font-size: 11px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; transition: background .3s, transform .25s; font-family: 'Jost', sans-serif; }
-        .btn-green:hover { background: rgba(242,237,227,.85); transform: translateY(-2px); }
-        .btn-back { font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(242,237,227,.45); text-decoration: none; transition: color .2s; }
-        .btn-back:hover { color: var(--cream); }
+        .btn-green { display: inline-block; padding: 18px 58px; background: var(--green); color: var(--cream); text-decoration: none; font-size: 11px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; transition: background .3s, transform .25s; font-family: 'Jost', sans-serif; }
+        .btn-green:hover { background: var(--green-2); transform: translateY(-2px); }
+        .btn-back { font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+        .btn-back:hover { color: var(--green); }
 
         /* ── FOOTER ── */
         footer { background: var(--green); padding: 56px 64px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(242,237,227,.08); }
@@ -98,7 +92,7 @@
             nav, nav.scrolled { padding: 22px 28px; }
             .nav-links { display: none; }
             .page-hero { padding: 140px 28px 60px; }
-            .page-content { padding: 0 28px 60px; }
+            .page-content { padding: 60px 28px 80px; }
             .stats-row { grid-template-columns: 1fr 1fr; }
             .detail-row { grid-template-columns: 1fr; }
             footer { flex-direction: column; gap: 36px; text-align: center; padding: 52px 28px; }
@@ -114,17 +108,7 @@
     <a href="index.html" class="nav-logo">Salâma</a>
     <ul class="nav-links">
         <li><a href="index.html#about">Hakkında</a></li>
-        <li class="nav-dropdown">
-            <a href="index.html#programs">Programlar</a>
-            <ul class="nav-dropdown-menu">
-                <li><a href="nefes-dinamigi.html">Nefes Dinamiği ve Analizi</a></li>
-                <li><a href="divine-she.html">Divine She</a></li>
-                <li><a href="pure-one.html">PURE ONE "su"</a></li>
-                <li><a href="rahim-detox.html">Rahim Detox</a></li>
-                <li><a href="ozel-ders.html">Özel Ders "nefes"</a></li>
-                <li><a href="sadece.html">Sade.ce</a></li>
-            </ul>
-        </li>
+        <li><a href="index.html#programs">Programlar</a></li>
         <li><a href="index.html#videos">Videolar</a></li>
         <li><a href="index.html#cta" class="nav-cta">Başvur</a></li>
     </ul>
@@ -146,9 +130,9 @@
     </div>
 </div>
 
-<div class="page-body">
+<main style="background: var(--cream-bg);">
     <div class="page-content">
-        <div class="sadece-desc reveal" style="padding-top: 80px;">
+        <div class="sadece-desc reveal">
             <p>Sade.ce, modern yaşamın getirdiği yoğunluk, zihinsel yüklenme ve bedensel sıkışmaların, insanın sinir sistemi ve nefes alışkanlıkları üzerindeki etkilerini doğrudan ele alarak, bireyin yaşamını zorlaştıran içsel mekanizmaları çözmeyi hedefleyen yapılandırılmış bir dönüşüm programıdır.</p>
             <p>21 buluşmadan oluşan bu süreçte, katılımcının sinir sistemi yeniden düzenlenir, bedensel hafızada biriken yükler çözülür ve nefesin doğal akışı yeniden kazanılır.</p>
             <p>Programın temel yaklaşımı, kişiye yeni bilgiler yüklemek değil; halihazırda işlevini yitirmiş olan düşünce, duygu ve davranış kalıplarını çözerek bireyin kendi doğal dengesine dönmesini sağlamaktır.</p>
@@ -208,7 +192,7 @@
             <a href="index.html#programs" class="btn-back">← Tüm Programlar</a>
         </div>
     </div>
-</div>
+</main>
 
 <footer>
     <div>
