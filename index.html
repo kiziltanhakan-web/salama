@@ -679,25 +679,8 @@
         .btn-green:hover { background: var(--green-2); transform: translateY(-2px); }
         .btn-green:disabled { opacity: .5; cursor: not-allowed; transform: none; }
 
-        /* ── KVKK ── */
-        #kvkk { padding: 80px 64px; background: var(--white); border-top: 1px solid rgba(27,56,41,.08); }
-        .kvkk-inner { max-width: 860px; margin: 0 auto; }
-        .kvkk-inner h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 36px; font-weight: 300; color: var(--dark); margin-bottom: 28px;
-        }
-        .kvkk-inner h4 {
-            font-size: 11px; font-weight: 500;
-            letter-spacing: .18em; text-transform: uppercase;
-            color: var(--muted); margin: 28px 0 12px;
-        }
-        .kvkk-inner p {
-            font-size: 14px; font-weight: 300;
-            line-height: 1.95; color: #4A5C50; margin-bottom: 12px;
-        }
         @media (max-width: 960px) {
             #cta { padding: 80px 28px; }
-            #kvkk { padding: 60px 28px; }
         }
     </style>
 </head>
@@ -1143,7 +1126,7 @@
                 <div class="form-kvkk">
                     <input type="checkbox" id="cf-kvkk" required>
                     <label for="cf-kvkk">
-                        <a href="#kvkk">KVKK Aydınlatma Metni</a>'ni okudum, kişisel verilerimin işlenmesine onay veriyorum.
+                        <a href="kvkk.html" target="_blank">KVKK Aydınlatma Metni</a>'ni okudum, kişisel verilerimin işlenmesine onay veriyorum.
                     </label>
                 </div>
                 <div class="form-submit-row">
@@ -1155,23 +1138,6 @@
     </div>
 </section>
 
-<!-- ═══ KVKK ═══ -->
-<section id="kvkk">
-    <div class="kvkk-inner">
-        <h3>KVKK Aydınlatma Metni</h3>
-        <h4>Veri Sorumlusu</h4>
-        <p>Salâma Seda Demren — seda.demren@gmail.com</p>
-        <h4>İşlenen Kişisel Veriler</h4>
-        <p>İletişim formumuz aracılığıyla ad-soyad, e-posta adresi, telefon numarası, mesaj içeriği ve iletişim tercihiniz toplanmaktadır. İleride eklenecek Google Analytics ve Meta (Instagram) piksel araçları aracılığıyla anonim ziyaretçi davranışı verileri de işlenebilecektir.</p>
-        <h4>İşleme Amacı</h4>
-        <p>Toplanan kişisel veriler; program başvurusu değerlendirmesi, iletişim taleplerinizin yanıtlanması ve program bilgilendirmesi amacıyla kullanılmaktadır. Piksel verileri pazarlama ve reklam optimizasyonu amacıyla işlenmektedir.</p>
-        <h4>Veri Güvenliği ve Aktarım</h4>
-        <p>Verileriniz Supabase altyapısı üzerinde güvenli biçimde saklanmakta olup üçüncü şahıslarla paylaşılmamaktadır. Veritabanı erişimi şifreli bağlantı ile sağlanmaktadır.</p>
-        <h4>Haklarınız</h4>
-        <p>6698 sayılı KVKK'nın 11. maddesi uyarınca kişisel verilerinize erişim, düzeltme, silme veya işlemenin kısıtlanmasını talep etme haklarına sahipsiniz. Talepleriniz için: <a href="mailto:seda.demren@gmail.com" style="color:var(--green)">seda.demren@gmail.com</a></p>
-        <p style="margin-top:24px; font-size:12px; color:var(--muted);">Son güncelleme: Nisan 2026</p>
-    </div>
-</section>
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
@@ -1184,20 +1150,16 @@
         <li><a href="#programs">Programlar</a></li>
         <li><a href="#sadece">Sade.ce</a></li>
         <li><a href="#cta">İletişim</a></li>
-        <li><a href="#kvkk">KVKK</a></li>
+        <li><a href="kvkk.html">KVKK</a></li>
     </ul>
     <div class="footer-copy">© 2026 Salâma Seda Demren</div>
 </footer>
-
-<!-- Supabase CDN -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
     // ── SUPABASE YAPILANDIRMASI ──
     // TODO: Supabase proje URL ve anon key değerlerinizi buraya girin
     const SUPABASE_URL  = 'YOUR_SUPABASE_URL';
     const SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY';
-    const db = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON) : null;
 
     // ── NAVBAR SCROLL ──
     const nav = document.getElementById('nav');
@@ -1269,34 +1231,38 @@
         status.textContent = 'Gönderiliyor...';
         status.className = 'form-status';
 
-        if (!db || SUPABASE_URL === 'YOUR_SUPABASE_URL') {
-            // Supabase henüz yapılandırılmadı
+        if (SUPABASE_URL === 'YOUR_SUPABASE_URL') {
             setTimeout(() => {
-                status.textContent = 'Supabase bağlantısı yapılandırılmamış. Lütfen SUPABASE_URL ve SUPABASE_ANON değerlerini güncelleyin.';
+                status.textContent = 'İletişim sistemi yakında aktif olacak.';
                 status.className = 'form-status error';
                 submit.disabled = false;
             }, 400);
             return;
         }
 
-        const { error } = await db.from('contact_requests').insert({
-            name,
-            email,
-            phone,
-            message,
-            contact_preference: pref.value
-        });
-
-        if (error) {
-            status.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
-            status.className = 'form-status error';
-            submit.disabled = false;
-        } else {
+        try {
+            const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_requests`, {
+                method: 'POST',
+                headers: {
+                    'apikey': SUPABASE_ANON,
+                    'Authorization': `Bearer ${SUPABASE_ANON}`,
+                    'Content-Type': 'application/json',
+                    'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify({
+                    name, email, phone, message,
+                    contact_preference: pref.value
+                })
+            });
+            if (!res.ok) throw new Error();
             form.reset();
             status.textContent = 'Mesajınız iletildi. En kısa sürede size ulaşacağız.';
             status.className = 'form-status success';
-            submit.disabled = false;
+        } catch {
+            status.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+            status.className = 'form-status error';
         }
+        submit.disabled = false;
     });
 </script>
 
