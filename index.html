@@ -50,14 +50,14 @@
             letter-spacing: .18em; text-transform: uppercase;
             color: var(--cream); text-decoration: none;
         }
-        .nav-links { display: flex; gap: 44px; list-style: none; }
-        .nav-links a {
+        .nav-links { display: flex; gap: 44px; list-style: none; align-items: center; }
+        .nav-links > li > a {
             font-size: 11px; font-weight: 400;
             letter-spacing: .14em; text-transform: uppercase;
             color: var(--cream); text-decoration: none;
             opacity: .7; transition: opacity .2s;
         }
-        .nav-links a:hover { opacity: 1; }
+        .nav-links > li > a:hover { opacity: 1; }
         .nav-cta {
             padding: 10px 28px;
             border: 1px solid rgba(242,237,227,.45);
@@ -65,6 +65,41 @@
             transition: background .25s !important;
         }
         .nav-cta:hover { background: rgba(242,237,227,.12) !important; }
+
+        /* ── NAV DROPDOWN ── */
+        .nav-dropdown { position: relative; }
+        .nav-dropdown > a { cursor: default; }
+        .nav-dropdown-menu {
+            position: absolute; top: calc(100% + 20px); left: 50%;
+            transform: translateX(-50%);
+            background: rgba(27,56,41,.98);
+            backdrop-filter: blur(12px);
+            list-style: none;
+            min-width: 260px;
+            padding: 8px 0;
+            border: 1px solid rgba(242,237,227,.1);
+            opacity: 0; visibility: hidden;
+            transition: opacity .2s, visibility .2s, top .2s;
+            pointer-events: none;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1; visibility: visible;
+            top: calc(100% + 12px);
+            pointer-events: auto;
+        }
+        .nav-dropdown-menu li a {
+            display: block;
+            padding: 11px 24px;
+            font-size: 10px; font-weight: 400;
+            letter-spacing: .14em; text-transform: uppercase;
+            color: rgba(242,237,227,.65); text-decoration: none;
+            opacity: 1 !important;
+            transition: color .2s, background .2s;
+        }
+        .nav-dropdown-menu li a:hover {
+            color: var(--cream);
+            background: rgba(242,237,227,.06);
+        }
 
         /* ── HERO ── */
         #hero {
@@ -129,46 +164,6 @@
             0%   { opacity: 0; transform: translateX(-50%) scaleY(0); transform-origin: top; }
             50%  { opacity: 1; transform: translateX(-50%) scaleY(1); }
             100% { opacity: 0; transform: translateX(-50%) scaleY(0); transform-origin: bottom; }
-        }
-
-        /* ── MANIFESTO ── */
-        #manifesto {
-            background: var(--green);
-            padding: 110px 64px;
-            border-top: 1px solid rgba(242,237,227,.08);
-        }
-        .manifesto-grid {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 100px;
-            align-items: center;
-        }
-        .manifesto-lines { list-style: none; }
-        .manifesto-lines li {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(22px, 2.4vw, 34px);
-            font-weight: 300; color: var(--cream);
-            padding: 18px 0;
-            border-bottom: 1px solid rgba(242,237,227,.1);
-            line-height: 1.2;
-        }
-        .manifesto-lines li:first-child { border-top: 1px solid rgba(242,237,227,.1); }
-        .manifesto-lines li.italic-line { font-style: italic; opacity: .6; }
-        .manifesto-right { padding-left: 20px; }
-        .label-light {
-            display: block; font-size: 10px; font-weight: 500;
-            letter-spacing: .3em; text-transform: uppercase;
-            color: rgba(242,237,227,.45); margin-bottom: 28px;
-        }
-        .label-dark {
-            display: block; font-size: 10px; font-weight: 500;
-            letter-spacing: .3em; text-transform: uppercase;
-            color: var(--muted); margin-bottom: 28px;
-        }
-        .manifesto-quote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(16px, 1.6vw, 20px);
-            font-style: italic; font-weight: 300;
-            color: rgba(242,237,227,.6); line-height: 1.9;
         }
 
         /* ── ABOUT ── */
@@ -254,40 +249,6 @@
             line-height: 1.5;
         }
 
-        /* ── DIVINE SHE ── */
-        #divine-she { padding: 0; background: var(--white); overflow: hidden; }
-        .divine-grid {
-            max-width: 100%; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr;
-            min-height: 80vh;
-        }
-        .divine-img {
-            width: 100%; height: 100%; min-height: 600px;
-            overflow: hidden;
-        }
-        .divine-img img {
-            width: 100%; height: 100%;
-            object-fit: cover; object-position: center;
-            display: block;
-        }
-        .divine-content {
-            padding: 100px 80px;
-            display: flex; flex-direction: column; justify-content: center;
-            background: var(--cream-bg);
-        }
-        .divine-heading {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(52px, 5vw, 80px);
-            font-weight: 300; line-height: .88;
-            color: var(--dark); margin-bottom: 36px;
-        }
-        .divine-right p {
-            font-size: 15px; font-weight: 300;
-            line-height: 1.95; color: #4A5C50;
-            margin-bottom: 22px;
-        }
-        .divine-right p:last-of-type { margin-bottom: 40px; }
-
         /* ── PROGRAMS ── */
         #programs { padding: 120px 64px; background: var(--white); }
         .section-header {
@@ -307,11 +268,11 @@
         }
         .programs-grid {
             max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
         }
         .prog-card { position: relative; overflow: hidden; cursor: pointer; }
         .prog-inner {
-            padding: 64px 56px; min-height: 520px;
+            padding: 56px 48px; min-height: 460px;
             display: flex; flex-direction: column; justify-content: flex-end;
             transition: transform .5s ease;
         }
@@ -330,7 +291,7 @@
         }
         .prog-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(40px, 4.5vw, 64px);
+            font-size: clamp(32px, 3vw, 52px);
             font-weight: 300; color: var(--cream);
             line-height: .95; margin-bottom: 24px;
         }
@@ -349,97 +310,6 @@
         .prog-link::after { content: '→'; transition: transform .2s; }
         .prog-link:hover { opacity: 1; }
         .prog-link:hover::after { transform: translateX(4px); }
-
-        /* ── SADECE SECTION ── */
-        #sadece {
-            padding: 120px 64px;
-            background: var(--green);
-            position: relative;
-        }
-        .sadece-inner { position: relative; z-index: 1; }
-        .sadece-inner { max-width: 1200px; margin: 0 auto; }
-        .sadece-top {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-            align-items: end; margin-bottom: 80px;
-        }
-        .sadece-display {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(72px, 12vw, 148px);
-            font-weight: 300; color: var(--cream);
-            line-height: .82; letter-spacing: .01em;
-        }
-        .sadece-display .dot-ce {
-            font-size: .38em; letter-spacing: .08em;
-            color: rgba(242,237,227,.4);
-            font-family: 'Jost', sans-serif;
-            font-weight: 300;
-        }
-        .sadece-right-text {
-            font-size: 15px; font-weight: 300;
-            line-height: 1.95; color: rgba(242,237,227,.65);
-        }
-        .sadece-right-text strong {
-            color: var(--cream); font-weight: 400;
-        }
-        .btn-outline-cream {
-            display: inline-block; margin-top: 40px;
-            padding: 16px 50px;
-            border: 1px solid rgba(242,237,227,.4);
-            color: var(--cream); text-decoration: none;
-            font-size: 11px; font-weight: 400;
-            letter-spacing: .22em; text-transform: uppercase;
-            transition: all .3s;
-        }
-        .btn-outline-cream:hover { background: rgba(242,237,227,.09); border-color: var(--cream); }
-
-        .stats-row {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;
-            margin-bottom: 3px;
-        }
-        .stat {
-            padding: 48px 36px;
-            background: rgba(242,237,227,.04);
-            border: 1px solid rgba(242,237,227,.07);
-        }
-        .stat-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(50px, 5vw, 74px);
-            font-weight: 300; color: var(--cream); line-height: 1;
-            margin-bottom: 10px;
-        }
-        .stat-lbl {
-            font-size: 11px; font-weight: 500;
-            letter-spacing: .18em; text-transform: uppercase;
-            color: rgba(242,237,227,.45); margin-bottom: 8px;
-        }
-        .stat-sub {
-            font-size: 11px; font-weight: 300;
-            line-height: 1.65; color: rgba(242,237,227,.3);
-        }
-
-        .detail-row {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
-        }
-        .detail-block {
-            padding: 56px 52px;
-            background: rgba(242,237,227,.04);
-            border: 1px solid rgba(242,237,227,.07);
-        }
-        .detail-h {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 26px; font-weight: 300;
-            color: var(--cream); margin-bottom: 28px;
-        }
-        .detail-list { list-style: none; }
-        .detail-list li {
-            font-size: 14px; font-weight: 300;
-            line-height: 1.7; color: rgba(242,237,227,.55);
-            padding: 13px 0;
-            border-bottom: 1px solid rgba(242,237,227,.06);
-            display: flex; gap: 16px;
-        }
-        .detail-list li::before { content: '—'; color: rgba(242,237,227,.25); flex-shrink: 0; }
-
 
         /* ── FOOTER ── */
         footer {
@@ -479,27 +349,30 @@
         .reveal-d2 { transition-delay: .24s; }
         .reveal-d3 { transition-delay: .36s; }
 
+        /* ── LABEL ── */
+        .label-dark {
+            display: block; font-size: 10px; font-weight: 500;
+            letter-spacing: .3em; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 28px;
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 960px) {
             nav, nav.scrolled { padding: 22px 28px; }
             .nav-links { display: none; }
-            #hero, #manifesto, #about, #programs, #sadece, #cta, #spotify, #kvkk { padding-left: 28px; padding-right: 28px; }
+            #hero, #about, #programs, #cta, #spotify { padding-left: 28px; padding-right: 28px; }
             #videos { padding: 80px 28px !important; }
-            .manifesto-grid, .about-grid, .sadece-top, .detail-row { grid-template-columns: 1fr; gap: 44px; }
-            .programs-grid { grid-template-columns: 1fr; }
-            .stats-row { grid-template-columns: 1fr 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 44px; }
+            .programs-grid { grid-template-columns: 1fr 1fr; }
             .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
             .section-note { text-align: left; }
             footer { flex-direction: column; gap: 36px; text-align: center; padding: 52px 28px; }
-            .manifesto-right { padding-left: 0; }
-            .divine-grid { grid-template-columns: 1fr; }
-            .divine-img { min-height: 400px; }
-            .divine-content { padding: 60px 28px; }
             .about-img-wrap { position: static; }
         }
+        @media (max-width: 640px) {
+            .programs-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 520px) {
-            .stats-row { grid-template-columns: 1fr; }
-            .sadece-display { font-size: 80px; }
             .form-radio-options { flex-direction: column; gap: 16px; }
             .form-grid { grid-template-columns: 1fr; }
         }
@@ -545,51 +418,7 @@
         .spotify-inner { max-width: 1200px; margin: 0 auto; }
         @media (max-width: 960px) {
             #spotify { padding: 60px 28px; }
-            #egitimler { padding: 80px 28px !important; }
         }
-        @media (max-width: 520px) {
-            #shopier-grid { grid-template-columns: 1fr !important; }
-        }
-        @media (max-width: 960px) and (min-width: 521px) {
-            #shopier-grid { grid-template-columns: 1fr 1fr !important; }
-        }
-
-        /* ── SHOPIER CARDS ── */
-        .shopier-card {
-            display: flex; flex-direction: column;
-            background: var(--cream-bg);
-            border: 1px solid rgba(27,56,41,.1);
-            overflow: hidden;
-            text-decoration: none; color: inherit;
-            transition: transform .3s, box-shadow .3s;
-        }
-        .shopier-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(27,56,41,.1);
-        }
-        .shopier-card-img {
-            width: 100%; aspect-ratio: 16/10;
-            object-fit: cover; display: block;
-            background: var(--green);
-        }
-        .shopier-card-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
-        .shopier-card-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px; font-weight: 300;
-            color: var(--dark); margin-bottom: 12px; line-height: 1.3;
-        }
-        .shopier-card-desc {
-            font-size: 14px; font-weight: 300;
-            line-height: 1.75; color: var(--muted);
-            margin-bottom: 24px; flex: 1;
-        }
-        .shopier-card-cta {
-            font-size: 11px; font-weight: 400;
-            letter-spacing: .16em; text-transform: uppercase;
-            color: var(--green); display: inline-flex; align-items: center; gap: 8px;
-            transition: opacity .2s;
-        }
-        .shopier-card:hover .shopier-card-cta { opacity: .6; }
 
         /* ── CONTACT FORM ── */
         #cta { padding: 120px 64px; background: var(--cream-bg); }
@@ -691,8 +520,17 @@
     <a href="#" class="nav-logo">Salâma</a>
     <ul class="nav-links">
         <li><a href="#about">Hakkında</a></li>
-        <li><a href="#divine-she">Divine She</a></li>
-        <li><a href="#sadece">Sade.ce</a></li>
+        <li class="nav-dropdown">
+            <a href="#programs">Programlar</a>
+            <ul class="nav-dropdown-menu">
+                <li><a href="nefes-dinamigi.html">Nefes Dinamiği ve Analizi</a></li>
+                <li><a href="divine-she.html">Divine She</a></li>
+                <li><a href="pure-one.html">PURE ONE "su"</a></li>
+                <li><a href="rahim-detox.html">Rahim Detox</a></li>
+                <li><a href="ozel-ders.html">Özel Ders "nefes"</a></li>
+                <li><a href="sadece.html">Sade.ce</a></li>
+            </ul>
+        </li>
         <li><a href="#videos">Videolar</a></li>
         <li><a href="#cta" class="nav-cta">Başvur</a></li>
     </ul>
@@ -721,30 +559,6 @@
     <p class="hero-tagline">İçsel dönüşüm, daha fazlasını eklemekle değil —<br>taşımanın gerekmeyenleri bırakmakla başlar.</p>
     <a href="#programs" class="hero-cta">Çalışma Alanları</a>
     <div class="scroll-line"></div>
-</section>
-
-<!-- ═══ MANIFESTO ═══ -->
-<section id="manifesto">
-    <div class="manifesto-grid">
-        <ul class="manifesto-lines reveal">
-            <li>İçerisi doluysa.</li>
-            <li>Akış yavaşlamıştır.</li>
-            <li>Biraz ferahlamaya ne dersin?</li>
-            <li class="italic-line">"Sade•ce"</li>
-            <li>Fazlasını bırakma alanı.</li>
-        </ul>
-        <div class="manifesto-right reveal reveal-d1">
-            <span class="label-light">Yaklaşım</span>
-            <p class="manifesto-quote">
-                Bu program bir gelişim alanı değil.<br>
-                Bir arınma alanı.<br><br>
-                Bir şey katmıyoruz.<br>
-                Üzerinden alıyoruz.<br><br>
-                Çünkü mesele daha fazlası değil,<br>
-                artık sana ait olmayanın çözülmesi.
-            </p>
-        </div>
-    </div>
 </section>
 
 <!-- ═══ ABOUT ═══ -->
@@ -835,7 +649,7 @@
     </div>
 </section>
 
-<!-- ═══ PROGRAMS OVERVIEW ═══ -->
+<!-- ═══ PROGRAMS ═══ -->
 <section id="programs">
     <div class="section-header reveal">
         <div>
@@ -845,121 +659,54 @@
         <p class="section-note">Her program, bireyin kendi doğal dengesine dönmesini hedefleyen yapılandırılmış bir dönüşüm sürecidir.</p>
     </div>
     <div class="programs-grid reveal reveal-d1">
-        <!-- Divine She -->
         <div class="prog-card">
-            <div class="prog-inner" style="background: var(--green-2);">
-                <span class="prog-tag">Feminen Enerji Programı</span>
-                <h3 class="prog-title">Divine<br>She</h3>
-                <p class="prog-desc">Kadın bedeninin hem biyolojik hem de enerjetik katmanlarını birlikte ele alan çok boyutlu bir çalışma alanı. Kadınların birbirini iyileştirdiği değil; her katılımcının kendi bütünlüğünü yeniden kurduğu bir dönüşüm süreci.</p>
-                <a href="#divine-she" class="prog-link">Detayları İncele</a>
+            <div class="prog-inner" style="background: #1B3829;">
+                <span class="prog-tag">Nefes Programı</span>
+                <h3 class="prog-title">Nefes Dinamiği<br>ve Analizi</h3>
+                <a href="nefes-dinamigi.html" class="prog-link">Detayları İncele</a>
             </div>
         </div>
-        <!-- Sade.ce -->
         <div class="prog-card">
-            <div class="prog-inner" style="background: var(--green);">
+            <div class="prog-inner" style="background: #243F30;">
+                <span class="prog-tag">Feminen Enerji Programı</span>
+                <h3 class="prog-title">Divine<br>She</h3>
+                <a href="divine-she.html" class="prog-link">Detayları İncele</a>
+            </div>
+        </div>
+        <div class="prog-card">
+            <div class="prog-inner" style="background: #1E3C2B;">
+                <span class="prog-tag">Arınma Programı</span>
+                <h3 class="prog-title">PURE ONE<br>"su"</h3>
+                <a href="pure-one.html" class="prog-link">Detayları İncele</a>
+            </div>
+        </div>
+        <div class="prog-card">
+            <div class="prog-inner" style="background: #2A4535;">
+                <span class="prog-tag">Kadın Sağlığı</span>
+                <h3 class="prog-title">Rahim<br>Detox</h3>
+                <a href="rahim-detox.html" class="prog-link">Detayları İncele</a>
+            </div>
+        </div>
+        <div class="prog-card">
+            <div class="prog-inner" style="background: #162E23;">
+                <span class="prog-tag">Birebir Çalışma</span>
+                <h3 class="prog-title">Özel Ders<br>"nefes"</h3>
+                <a href="ozel-ders.html" class="prog-link">Detayları İncele</a>
+            </div>
+        </div>
+        <div class="prog-card">
+            <div class="prog-inner" style="background: #1B3829;">
                 <div class="prog-badge">Aktif Program</div>
                 <span class="prog-tag">Dönüşüm Programı</span>
                 <h3 class="prog-title">Sade<br>.ce</h3>
-                <p class="prog-desc">Modern yaşamın getirdiği yoğunluk ve bedensel sıkışmaların sinir sistemi ve nefes alışkanlıkları üzerindeki etkilerini çözen yapılandırılmış bir dönüşüm programı. 60 günde 21 buluşma.</p>
-                <a href="#sadece" class="prog-link">Detayları İncele</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══ DIVINE SHE ═══ -->
-<section id="divine-she">
-    <div class="divine-grid">
-        <div class="divine-img reveal">
-            <img src="images/divine-she.jpeg" alt="Divine She Programı">
-        </div>
-        <div class="divine-content reveal reveal-d1">
-            <span class="label-dark">Feminen Enerji Programı</span>
-            <h2 class="divine-heading">Divine<br>She</h2>
-            <div class="divine-right">
-                <p>Divine She, kadının toplumsal roller, öğrenilmiş davranış kalıpları ve bastırılmış duygusal yükler nedeniyle parçalanmış olan içsel yapısını yeniden bütünleştirmeyi hedefleyen, kadın bedeninin hem biyolojik hem de enerjetik katmanlarını birlikte ele alan çok boyutlu bir çalışma alanıdır.</p>
-                <p>Bu program kapsamında, rahim yalnızca fiziksel bir organ olarak değil, kadının duygusal hafızasını ve yaratım kapasitesini taşıyan merkezi bir alan olarak ele alınmakta; bastırılmış duygu durumları, sinir sistemi tepkileri ve bedensel blokajlar nefes, farkındalık ve somatik çalışmalar aracılığıyla çözülmektedir.</p>
-                <p>Divine She, kadınların birbirini iyileştirdiği bir alan değil; her katılımcının kendi içsel gerçekliğiyle yüzleşerek, kendi bütünlüğünü yeniden kurduğu bir dönüşüm süreci olarak yapılandırılmıştır.</p>
-            </div>
-            <a href="#cta" class="btn-green">Bilgi Al</a>
-        </div>
-    </div>
-</section>
-
-<!-- ═══ SADECE DETAIL ═══ -->
-<section id="sadece">
-    <div class="sadece-inner">
-        <div class="sadece-top reveal">
-            <div>
-                <span class="label-light">Aktif Program</span>
-                <div class="sadece-display">
-                    SADE<br><span class="dot-ce">.CE</span>
-                </div>
-            </div>
-            <div>
-                <p class="sadece-right-text">
-                    Sade.ce, modern yaşamın getirdiği yoğunluk, zihinsel yüklenme ve bedensel sıkışmaların, insanın sinir sistemi ve nefes alışkanlıkları üzerindeki etkilerini doğrudan ele alarak, bireyin yaşamını zorlaştıran içsel mekanizmaları çözmeyi hedefleyen yapılandırılmış bir dönüşüm programıdır.<br><br>
-                    21 buluşmadan oluşan bu süreçte, katılımcının sinir sistemi yeniden düzenlenir, bedensel hafızada biriken yükler çözülür ve nefesin doğal akışı yeniden kazanılır.<br><br>
-                    Programın temel yaklaşımı, kişiye yeni bilgiler yüklemek değil; halihazırda işlevini yitirmiş olan düşünce, duygu ve davranış kalıplarını çözerek bireyin kendi doğal dengesine dönmesini sağlamaktır.<br><br>
-                    Bu süreç sonunda hedeflenen, daha fazla kontrol etmek değil; yaşamın içinde daha akıcı, daha hafif ve daha sürdürülebilir bir varoluş biçiminin ortaya çıkmasıdır.<br><br>
-                    <strong>Her Salı ve Perşembe — 21:30'da Zoom'da buluşuyoruz.</strong><br>
-                    <strong>60 günde 21 buluşma, toplam 21 saat.</strong>
-                </p>
-                <a href="#cta" class="btn-outline-cream">Başvur</a>
-            </div>
-        </div>
-
-        <!-- Stats -->
-        <div class="stats-row reveal">
-            <div class="stat">
-                <div class="stat-num">150+</div>
-                <div class="stat-lbl">Nefes & Somatik</div>
-                <div class="stat-sub">Arınma · Metabolik · Rahim/Pelvik<br>Denge · Relax · Uyum · İçe Dönüş</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">20+</div>
-                <div class="stat-lbl">Meditasyon</div>
-                <div class="stat-sub">Yönlendirmeli Meditasyon<br>Ruh · Beden · Zihin · Denge</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">3+</div>
-                <div class="stat-lbl">Theta Healing</div>
-                <div class="stat-sub">Bilinçaltı Dönüşümü</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">85+</div>
-                <div class="stat-lbl">Regülasyon</div>
-                <div class="stat-sub">Sinir sistemi alışkanlıklarını güncelleme pratikleri</div>
-            </div>
-        </div>
-
-        <!-- Detail blocks -->
-        <div class="detail-row reveal reveal-d1">
-            <div class="detail-block">
-                <h4 class="detail-h">Program İçeriği</h4>
-                <ul class="detail-list">
-                    <li>60 günde 21 buluşma, toplam 21 saat</li>
-                    <li>Her Salı ve Perşembe 21:30 — Zoom</li>
-                    <li>Özel mesaj grubundan her günün akışına ait farkındalık ve pekiştirme çalışmaları</li>
-                    <li>Katılamadığınız günlerde özel pratikler ve ödevlerle yolculuğunuz durmaz</li>
-                    <li>Bazı şeyler kaydedilemez — yaşanır. Bu program da öyle.</li>
-                </ul>
-            </div>
-            <div class="detail-block">
-                <h4 class="detail-h">Programın Amacı</h4>
-                <ul class="detail-list">
-                    <li>Sinir sistemini yeniden düzenlemek</li>
-                    <li>Bedensel hafızada biriken yükleri çözmek</li>
-                    <li>Nefesin doğal akışını yeniden kazanmak</li>
-                    <li>İşlevini yitirmiş düşünce, duygu ve davranış kalıplarını çözmek</li>
-                    <li>Daha akıcı, hafif ve sürdürülebilir bir varoluş biçimi ortaya çıkarmak</li>
-                </ul>
+                <a href="sadece.html" class="prog-link">Detayları İncele</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ═══ VIDEOS ═══ -->
+<!-- TODO: YouTube Data API v3 ile otomatik güncelleme — YouTube API key gerektirir, ileride eklenecek -->
 <section id="videos" style="padding: 120px 64px; background: var(--white);">
     <div style="max-width: 1200px; margin: 0 auto;">
         <div class="section-header reveal" style="margin-bottom: 64px;">
@@ -975,7 +722,6 @@
             </a>
         </div>
         <div class="videos-grid reveal">
-            <!-- Video 1 -->
             <div class="video-item">
                 <iframe
                     src="https://www.youtube.com/embed/4WLa9kUjWOA"
@@ -984,25 +730,6 @@
                     allowfullscreen>
                 </iframe>
             </div>
-            <!-- Video 2 -->
-            <div class="video-item">
-                <iframe
-                    src="https://www.youtube.com/embed/hhSba8Yz3yQ"
-                    title="Salâma Demren"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <!-- Video 3 — TODO: YouTube video ID'sini güncelleyin -->
-            <div class="video-item">
-                <iframe
-                    src="https://www.youtube.com/embed/4WLa9kUjWOA"
-                    title="Salâma Demren"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <!-- Video 4 — TODO: YouTube video ID'sini güncelleyin -->
             <div class="video-item">
                 <iframe
                     src="https://www.youtube.com/embed/hhSba8Yz3yQ"
@@ -1041,27 +768,6 @@
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy">
             </iframe>
-        </div>
-    </div>
-</section>
-
-<!-- ═══ EĞİTİMLER (Shopier) ═══ -->
-<section id="egitimler" style="padding: 120px 64px; background: var(--white);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <div class="section-header reveal" style="margin-bottom: 64px;">
-            <div>
-                <span class="label-dark">Online Eğitimler</span>
-                <h2 class="display-h2">Dijital İçerikler</h2>
-            </div>
-            <a href="https://www.shopier.com/sedademren" target="_blank" rel="noopener"
-               style="font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;"
-               onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">
-                Tümünü Gör
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-            </a>
-        </div>
-        <div id="shopier-grid" class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-            <div style="grid-column:1/-1;padding:40px 0;color:var(--muted);font-size:14px;font-weight:300;letter-spacing:.06em;">Yükleniyor…</div>
         </div>
     </div>
 </section>
@@ -1138,7 +844,6 @@
     </div>
 </section>
 
-
 <!-- ═══ FOOTER ═══ -->
 <footer>
     <div class="footer-brand">
@@ -1148,7 +853,6 @@
     <ul class="footer-links">
         <li><a href="#about">Hakkında</a></li>
         <li><a href="#programs">Programlar</a></li>
-        <li><a href="#sadece">Sade.ce</a></li>
         <li><a href="#cta">İletişim</a></li>
         <li><a href="kvkk.html">KVKK</a></li>
     </ul>
@@ -1156,70 +860,33 @@
 </footer>
 
 <script>
-    // ── SUPABASE YAPILANDIRMASI ──
-    // TODO: Supabase proje URL ve anon key değerlerinizi buraya girin
     const SUPABASE_URL  = 'YOUR_SUPABASE_URL';
     const SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY';
 
-    // ── NAVBAR SCROLL ──
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
         nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    // ── SCROLL REVEAL ──
     const revealEls = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => io.observe(el));
 
-    // ── SHOPİER ÜRÜNLERİ ──
-    (async function loadShopier() {
-        const grid = document.getElementById('shopier-grid');
-        if (!grid) return;
-        try {
-            const res = await fetch('/api/shopier-products');
-            if (!res.ok) throw new Error('api-error');
-            const { products } = await res.json();
-
-            if (!products || products.length === 0) {
-                grid.innerHTML = '<p style="color:var(--muted);font-size:14px;font-weight:300;grid-column:1/-1;padding:20px 0;">Yakında yeni içerikler eklenecek.</p>';
-                return;
-            }
-
-            // Responsive sütun sayısı
-            const cols = window.innerWidth > 960 ? 3 : window.innerWidth > 520 ? 2 : 1;
-            grid.style.gridTemplateColumns = `repeat(${cols},1fr)`;
-
-            grid.innerHTML = products.map(p => `
-                <a href="${p.url}" target="_blank" rel="noopener" class="shopier-card">
-                    ${p.image ? `<img class="shopier-card-img" src="${p.image}" alt="${p.name}" loading="lazy">` : '<div class="shopier-card-img"></div>'}
-                    <div class="shopier-card-body">
-                        <h3 class="shopier-card-title">${p.name}</h3>
-                        ${p.description ? `<p class="shopier-card-desc">${p.description}</p>` : ''}
-                        <span class="shopier-card-cta">İncele &nbsp;→</span>
-                    </div>
-                </a>`).join('');
-        } catch {
-            grid.innerHTML = '<p style="color:var(--muted);font-size:14px;font-weight:300;grid-column:1/-1;padding:20px 0;">İçerikler yüklenemedi.</p>';
-        }
-    })();
-
-    // ── İLETİŞİM FORMU ──
-    const form    = document.getElementById('contact-form');
-    const submit  = document.getElementById('cf-submit');
-    const status  = document.getElementById('cf-status');
+    const form   = document.getElementById('contact-form');
+    const submit = document.getElementById('cf-submit');
+    const status = document.getElementById('cf-status');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const name     = document.getElementById('cf-name').value.trim();
-        const email    = document.getElementById('cf-email').value.trim();
-        const phone    = document.getElementById('cf-phone').value.trim();
-        const message  = document.getElementById('cf-message').value.trim();
-        const pref     = form.querySelector('input[name="contact_preference"]:checked');
-        const kvkk     = document.getElementById('cf-kvkk').checked;
+        const name    = document.getElementById('cf-name').value.trim();
+        const email   = document.getElementById('cf-email').value.trim();
+        const phone   = document.getElementById('cf-phone').value.trim();
+        const message = document.getElementById('cf-message').value.trim();
+        const pref    = form.querySelector('input[name="contact_preference"]:checked');
+        const kvkk    = document.getElementById('cf-kvkk').checked;
 
         if (!name || !email || !phone || !message || !pref || !kvkk) {
             status.textContent = 'Lütfen tüm alanları doldurun.';
