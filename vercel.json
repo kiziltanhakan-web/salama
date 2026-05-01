@@ -1,6 +1,13 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/coming-soon.html" },
-    { "source": "/((?!coming-soon\\.html|images/|api/).*)", "destination": "/coming-soon.html" }
+  "redirects": [
+    { "source": "/", "destination": "/coming-soon.html", "permanent": false },
+    { "source": "/index.html", "destination": "/coming-soon.html", "permanent": false },
+    { "source": "/divine-she.html", "destination": "/coming-soon.html", "permanent": false },
+    { "source": "/golden-womb.html", "destination": "/coming-soon.html", "permanent": false },
+    { "source": "/kvkk.html", "destination": "/coming-soon.html", "permanent": false },
+    { "source": "/nefes-dinamigi.html", "destination": "/coming-soon.html", "permanent": false },
+    { "source": "/ozel-ders.html", "destination": "/coming-soon.html", "permanent": false },
+    { "source": "/pure-one.html", "destination": "/coming-soon.html", "permanent": false },
+    { "source": "/sadece.html", "destination": "/coming-soon.html", "permanent": false }
   ]
 }
