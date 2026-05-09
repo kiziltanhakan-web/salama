@@ -45,8 +45,16 @@
         .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(64px, 10vw, 120px); font-weight: 300; line-height: .88; color: var(--cream); }
         .page-title .dot-ce { font-size: .38em; letter-spacing: .08em; color: rgba(242,237,227,.4); font-family: 'Jost', sans-serif; font-weight: 300; }
 
+        /* ── INTRO GRID ── */
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; }
+        .intro-img { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+        .intro-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+        .intro-text { padding: 80px 72px 80px; background: var(--cream-bg); display: flex; flex-direction: column; justify-content: center; }
+        .intro-text p { font-size: 15px; font-weight: 300; line-height: 2; color: #4A5C50; margin-bottom: 24px; }
+        .intro-text strong { color: var(--dark); font-weight: 400; }
+
         /* ── CONTENT ── */
-        .page-content { max-width: 1200px; margin: 0 auto; padding: 100px 64px 120px; }
+        .page-content { max-width: 1200px; margin: 0 auto; padding: 80px 64px 120px; }
         .sadece-desc { max-width: 740px; margin-bottom: 80px; }
         .sadece-desc p { font-size: 16px; font-weight: 300; line-height: 2; color: #4A5C50; margin-bottom: 24px; }
         .sadece-desc strong { color: var(--dark); font-weight: 400; }
@@ -92,7 +100,10 @@
             nav, nav.scrolled { padding: 22px 28px; }
             .nav-links { display: none; }
             .page-hero { padding: 140px 28px 60px; }
-            .page-content { padding: 60px 28px 80px; }
+            .intro-grid { grid-template-columns: 1fr; }
+            .intro-img { position: static; height: 60vw; min-height: 320px; }
+            .intro-text { padding: 60px 28px 60px; }
+            .page-content { padding: 40px 28px 80px; }
             .stats-row { grid-template-columns: 1fr 1fr; }
             .detail-row { grid-template-columns: 1fr; }
             footer { flex-direction: column; gap: 36px; text-align: center; padding: 52px 28px; }
@@ -130,15 +141,23 @@
     </div>
 </div>
 
+<div class="intro-grid">
+    <div class="intro-img reveal">
+        <img src="images/sadece.jpeg" alt="Sade.ce Programı">
+    </div>
+    <div class="intro-text reveal">
+        <span style="display:block; font-size:10px; font-weight:500; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); margin-bottom:28px;">Dönüşüm Programı</span>
+        <p>Sade.ce, modern yaşamın getirdiği yoğunluk, zihinsel yüklenme ve bedensel sıkışmaların, insanın sinir sistemi ve nefes alışkanlıkları üzerindeki etkilerini doğrudan ele alarak, bireyin yaşamını zorlaştıran içsel mekanizmaları çözmeyi hedefleyen yapılandırılmış bir dönüşüm programıdır.</p>
+        <p>21 buluşmadan oluşan bu süreçte, katılımcının sinir sistemi yeniden düzenlenir, bedensel hafızada biriken yükler çözülür ve nefesin doğal akışı yeniden kazanılır.</p>
+        <p>Programın temel yaklaşımı, kişiye yeni bilgiler yüklemek değil; halihazırda işlevini yitirmiş olan düşünce, duygu ve davranış kalıplarını çözerek bireyin kendi doğal dengesine dönmesini sağlamaktır.</p>
+        <p>Bu süreç sonunda hedeflenen, daha fazla kontrol etmek değil; yaşamın içinde daha akıcı, daha hafif ve daha sürdürülebilir bir varoluş biçiminin ortaya çıkmasıdır.</p>
+        <p><strong>Her Salı ve Perşembe — 21:30'da Zoom'da buluşuyoruz.</strong><br><strong>60 günde 21 buluşma, toplam 21 saat.</strong></p>
+    </div>
+</div>
+
 <main style="background: var(--cream-bg);">
     <div class="page-content">
-        <div class="sadece-desc reveal">
-            <p>Sade.ce, modern yaşamın getirdiği yoğunluk, zihinsel yüklenme ve bedensel sıkışmaların, insanın sinir sistemi ve nefes alışkanlıkları üzerindeki etkilerini doğrudan ele alarak, bireyin yaşamını zorlaştıran içsel mekanizmaları çözmeyi hedefleyen yapılandırılmış bir dönüşüm programıdır.</p>
-            <p>21 buluşmadan oluşan bu süreçte, katılımcının sinir sistemi yeniden düzenlenir, bedensel hafızada biriken yükler çözülür ve nefesin doğal akışı yeniden kazanılır.</p>
-            <p>Programın temel yaklaşımı, kişiye yeni bilgiler yüklemek değil; halihazırda işlevini yitirmiş olan düşünce, duygu ve davranış kalıplarını çözerek bireyin kendi doğal dengesine dönmesini sağlamaktır.</p>
-            <p>Bu süreç sonunda hedeflenen, daha fazla kontrol etmek değil; yaşamın içinde daha akıcı, daha hafif ve daha sürdürülebilir bir varoluş biçiminin ortaya çıkmasıdır.</p>
-            <p><strong>Her Salı ve Perşembe — 21:30'da Zoom'da buluşuyoruz.</strong><br><strong>60 günde 21 buluşma, toplam 21 saat.</strong></p>
-        </div>
+        <div class="sadece-desc" style="display:none;"></div>
 
         <div class="stats-row reveal">
             <div class="stat">
