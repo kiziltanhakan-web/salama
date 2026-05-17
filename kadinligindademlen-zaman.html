@@ -15,6 +15,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
 
+<!-- ═══════════ GOOGLE ANALYTICS 4 ═══════════ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZCQ7CQ65G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QZCQ7CQ65G', {
+    page_title: 'Kadınlığında Demlen — Zaman',
+    page_path: '/kadinligindademlen-zaman'
+  });
+</script>
+<!-- ═══════════ /GOOGLE ANALYTICS 4 ═══════════ -->
+
 <!-- ═══════════ META PIXEL ═══════════ -->
 <!-- ⚠ 1937329440236595: gerçek Pixel ID Salama'nın Meta Events Manager'ından alınacak -->
 <script>
@@ -859,11 +872,18 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// === META PIXEL CLICK EVENTS ===
+// === META PIXEL + GA4 CLICK EVENTS ===
 document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
   el.addEventListener('click', () => {
     if (typeof fbq === 'function') {
       fbq('track', 'Contact', { content_name: 'WhatsApp click', source: 'landing' });
+    }
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        method: 'whatsapp',
+        currency: 'TRY',
+        value: 24000
+      });
     }
   });
 });
@@ -875,6 +895,19 @@ document.querySelectorAll('a[href*="shopier.com"]').forEach(el => {
         content_ids: ['kamp-2026-06-zaman'],
         value: 24000,
         currency: 'TRY'
+      });
+    }
+    if (typeof gtag === 'function') {
+      gtag('event', 'begin_checkout', {
+        currency: 'TRY',
+        value: 24000,
+        items: [{
+          item_id: 'kamp-2026-06-zaman',
+          item_name: 'Kadınlığında Demlen — Zaman',
+          item_category: 'kamp',
+          price: 24000,
+          quantity: 1
+        }]
       });
     }
   });
