@@ -2,3 +2,7 @@
 .env
 .env.local
 .env*.local
+
+# Image originals (yerel yedek, repo'da gereksiz büyütür)
+images/originals/
+
